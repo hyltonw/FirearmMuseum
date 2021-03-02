@@ -1,13 +1,14 @@
-package com.FirearmMuseum.FirearmMuseum.persistence;
+package com.FirearmMuseum.FirearmMuseum.persistence.Dao;
 
 import com.FirearmMuseum.FirearmMuseum.models.Caliber;
 
+import java.io.InvalidObjectException;
 import java.util.List;
 
 public interface CaliberDao {
     List<Caliber> getAllCalibers();
 
-    Caliber addCaliber(Caliber toAdd);
+    Caliber addCaliber(Caliber toAdd) throws InvalidObjectException;
 
     Caliber removeCaliberById(Integer id);
 
