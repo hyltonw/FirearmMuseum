@@ -1,5 +1,4 @@
 package com.FirearmMuseum.FirearmMuseum.persistence;
-
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
 import com.FirearmMuseum.FirearmMuseum.models.Firearm;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,8 +1,10 @@
 package com.FirearmMuseum.FirearmMuseum.services;
 
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
+import com.FirearmMuseum.FirearmMuseum.models.Caliber;
 import com.FirearmMuseum.FirearmMuseum.models.Firearm;
 //import com.FirearmMuseum.FirearmMuseum.persistence.CaliberDao;
+import com.FirearmMuseum.FirearmMuseum.persistence.CaliberDao;
 import com.FirearmMuseum.FirearmMuseum.persistence.FirearmDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ public class FirearmMuseumService {
 
     @Autowired
     FirearmDao firearmDao;
+
+    @Autowired
+    CaliberDao caliberDao;
 
 //    @Autowired
 //    CaliberDao caliberDao;
@@ -52,5 +57,9 @@ public class FirearmMuseumService {
 
     public List<Firearm> getFirearmsByYearRange(int startYear, int endYear) {
         return firearmDao.getFirearmsByYearRange(startYear,endYear);
+    }
+
+    public List<Caliber> getAllCalibers(){
+        return caliberDao.getAllCalibers();
     }
 }

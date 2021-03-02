@@ -15,6 +15,18 @@ export class MuseumService {
 
   constructor(private http : HttpClient) { }
 
+  getAllFirearms() : Observable<Firearm[]> {
+    return this.http.get<Firearm[]>(this.baseURL + "/firearms")
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        let empty : Firearm[] = [];
+        return of(empty);
+      })
+    )
+  }
+  
   addFirearm(toAdd : Firearm) : Observable<Firearm>{
     return this.http.post<Firearm>(this.baseURL+"/firearm/add", toAdd, this.httpOptions)
     .pipe(

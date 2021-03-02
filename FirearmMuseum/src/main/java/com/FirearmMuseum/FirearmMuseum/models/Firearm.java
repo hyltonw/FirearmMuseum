@@ -5,9 +5,13 @@ public class Firearm {
     private Integer firearmId;
     private String name;
     private Integer caliberId;
+    private Caliber firearmCaliber;
     private Integer manufacturerId;
+    private Manufacturer firearmManufacturer;
     private Integer actionTypeId;
+    private ActionType firearmActionType;
     private Integer firearmTypeId;
+    private FirearmType firearmFIrearmType;
     private Integer productionDate;
     private Integer serialNumber;
     private String description;
@@ -18,8 +22,26 @@ public class Firearm {
 
     }
 
-    public Firearm(String name, Integer caliberId, Integer manufacturer, Integer actionType,
-                   Integer firearmType, Integer productionDate, Integer serialNumber, String description, String donatedBy, Integer firearmId){
+//    public Firearm(String name, Integer caliberId, Integer manufacturer, Integer actionType, Integer firearmType,
+//                   Integer productionDate, Integer serialNumber, String description, String donatedBy, Integer firearmId,
+//                   Caliber caliber){
+//
+//        this.firearmId = firearmId;
+//        this.name = name;
+//        this.caliberId = caliberId;
+//        this.manufacturerId = manufacturer;
+//        this.actionTypeId = actionType;
+//        this.firearmTypeId = firearmType;
+//        this.productionDate = productionDate;
+//        this.serialNumber = serialNumber;
+//        this.description = description;
+//        this.donatedBy = donatedBy;
+//
+//    }
+
+    public Firearm(String name, Integer caliberId, Integer manufacturer, Integer actionType, Integer firearmType,
+                   Integer productionDate, Integer serialNumber, String description, String donatedBy, Integer firearmId,
+                   Caliber firearmCaliber){
 
         this.firearmId = firearmId;
         this.name = name;
@@ -31,6 +53,7 @@ public class Firearm {
         this.serialNumber = serialNumber;
         this.description = description;
         this.donatedBy = donatedBy;
+        this.firearmCaliber = firearmCaliber;
 
     }
 
@@ -45,6 +68,10 @@ public class Firearm {
         this.serialNumber = that.serialNumber;
         this.description = that.description;
         this.donatedBy = that.donatedBy;
+
+
+
+        this.firearmCaliber = that.firearmCaliber;
     }
 
     public Integer getFirearmId() {
@@ -133,6 +160,14 @@ public class Firearm {
 
     public void setCaliberId(Integer caliberId) {
         this.caliberId = caliberId;
+    }
+
+    public Caliber getFirearmCaliber() {
+        return firearmCaliber;
+    }
+
+    public void setFirearmCaliber(Caliber firearmCaliber) {
+        this.firearmCaliber = firearmCaliber;
     }
 
 }

@@ -2,6 +2,7 @@ package com.FirearmMuseum.FirearmMuseum.controllers;
 
 import com.FirearmMuseum.FirearmMuseum.FirearmMuseumApplication;
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
+import com.FirearmMuseum.FirearmMuseum.models.Caliber;
 import com.FirearmMuseum.FirearmMuseum.models.Firearm;
 import com.FirearmMuseum.FirearmMuseum.services.FirearmMuseumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class FirearmMuseumController {
         return service.getAllFirearms();
     }
 
-    @PostMapping("/firearm")
+    @PostMapping("/firearm/add")
     public ResponseEntity addFirearm(@RequestBody Firearm toAdd)  {
         try {
             Firearm completed = service.addFirearm(toAdd);
@@ -84,6 +85,11 @@ public class FirearmMuseumController {
     @GetMapping("/firearms/from/{startYear}/to/{endYear}")
     public List<Firearm> getFirearmsByYearRange(@PathVariable Integer startYear,@PathVariable Integer endYear){
         return service.getFirearmsByYearRange(startYear,endYear);
+    }
+
+    @GetMapping("/calibers")
+    public List<Caliber> getAllCalibers(){
+        return service.getAllCalibers();
     }
 
 

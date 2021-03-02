@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FirearmComponent } from './firearm/firearm.component';
 import { FirearmContainerComponent } from './firearm-container/firearm-container.component';
 import { AddFirearmComponent } from './add-firearm/add-firearm.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AddFirearmComponent } from './add-firearm/add-firearm.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
