@@ -1,4 +1,4 @@
-package com.FirearmMuseum.FirearmMuseum.persistence;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
 import com.FirearmMuseum.FirearmMuseum.models.Firearm;
 import com.FirearmMuseum.FirearmMuseum.persistence.Dao.FirearmDao;

@@ -1,18 +1,15 @@
 package com.FirearmMuseum.FirearmMuseum.controllers;
 
-import com.FirearmMuseum.FirearmMuseum.FirearmMuseumApplication;
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
-import com.FirearmMuseum.FirearmMuseum.models.Caliber;
-import com.FirearmMuseum.FirearmMuseum.models.Firearm;
+import com.FirearmMuseum.FirearmMuseum.models.*;
 import com.FirearmMuseum.FirearmMuseum.services.FirearmMuseumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.crypto.Data;
+import java.io.InvalidObjectException;
 import java.util.List;
 
 @RestController
@@ -21,8 +18,6 @@ public class FirearmMuseumController {
 
     @Autowired
     FirearmMuseumService service;
-
-    //TODO: Replace throws exceptions with try catch blocks around methods
 
     @GetMapping("/firearms")
     public List<Firearm> getAllFirearms(){
@@ -87,21 +82,175 @@ public class FirearmMuseumController {
         return service.getFirearmsByYearRange(startYear,endYear);
     }
 
-    @GetMapping("/calibers")
+
+
+
+    @GetMapping("/actiontype")
+    public List<ActionType> getAllActionTypes(){
+        return service.getAllActionTypes();
+    }
+
+    @PostMapping("/actiontype/add")
+    public ResponseEntity addActionType(@RequestBody ActionType toAdd) throws InvalidObjectException {
+        ActionType completed = service.addActionType(toAdd);
+
+        return ResponseEntity.ok(toAdd);
+    }
+
+    @DeleteMapping("/actiontype/remove/{id}")
+    public String removeActionType(@PathVariable Integer id) {
+
+        service.removeActionTypeById(id);
+
+        return "The action type with id "+id+" was removed.";
+    }
+
+    @PostMapping("/actiontype/edit/{id}")
+    public String editActionType(@PathVariable Integer id,@RequestBody ActionType toEdit){
+
+        service.editActionType(id,toEdit);
+
+        return "The action type with id "+id+" was edited.";
+
+    }
+
+    @GetMapping("/actiontype/{id}")
+    public ResponseEntity getActionTypeById(@PathVariable Integer id){
+
+        ActionType retrieved = service.getActionTypeById(id);
+
+        return ResponseEntity.ok(retrieved);
+    }
+
+
+
+
+    @GetMapping("/caliber")
     public List<Caliber> getAllCalibers(){
         return service.getAllCalibers();
     }
 
+    @PostMapping("/caliber/add")
+    public ResponseEntity addCaliber(@RequestBody Caliber toAdd) throws InvalidObjectException {
+        Caliber completed = service.addCaliber(toAdd);
+
+        return ResponseEntity.ok(toAdd);
+    }
+
+    @DeleteMapping("/caliber/remove/{id}")
+    public String removeCaliber(@PathVariable Integer id) {
+
+        service.removeCaliberById(id);
+
+        return "The caliber with id "+id+" was removed.";
+    }
+
     @PostMapping("/caliber/edit/{id}")
     public String editCaliber(@PathVariable Integer id,@RequestBody Caliber toEdit){
+
         service.editCaliber(id,toEdit);
-        return "The caliber with id " + id + " was editied";
+
+        return "The caliber with id "+id+" was edited.";
+
+    }
+
+    @GetMapping("/caliber/{id}")
+    public ResponseEntity getCaliberById(@PathVariable Integer id){
+
+        Caliber retrieved = service.getCaliberById(id);
+
+        return ResponseEntity.ok(retrieved);
     }
 
 
-//    @GetMapping("/firearms/dates/{date1}/{date2}")
-//    public List<Firearm> getFirearmsBetweenDates(Integer date1, Integer date2){
-//        return service.getFirearmsBetweenDates(date1, date2);
-//    }
+
+
+    @GetMapping("/firearmtype")
+    public List<FirearmType> getAllFirearmTypes(){
+        return service.getAllFirearmTypes();
+    }
+
+    @PostMapping("/firearmtype/add")
+    public ResponseEntity addFirearmType(@RequestBody FirearmType toAdd) throws InvalidObjectException {
+        FirearmType completed = service.addFirearmType(toAdd);
+
+        return ResponseEntity.ok(toAdd);
+    }
+
+    @DeleteMapping("/firearmtype/remove/{id}")
+    public String removeFirearmType(@PathVariable Integer id) {
+
+        service.removeFirearmTypeById(id);
+
+        return "The firearm type with id "+id+" was removed.";
+    }
+
+    @PostMapping("/firearmtype/edit/{id}")
+    public String editFirearmType(@PathVariable Integer id,@RequestBody FirearmType toEdit){
+
+        service.editFirearmType(id,toEdit);
+
+        return "The firearm type with id "+id+" was edited.";
+
+    }
+
+    @GetMapping("/firearmtype/{id}")
+    public ResponseEntity getFirearmTypeById(@PathVariable Integer id){
+
+        FirearmType retrieved = service.getFirearmTypeById(id);
+
+        return ResponseEntity.ok(retrieved);
+    }
+
+
+
+
+    @GetMapping("/manufacturer")
+    public List<Manufacturer> getAllManufacturers(){
+        return service.getAllManufacturers();
+    }
+
+    @PostMapping("/manufacturer/add")
+    public ResponseEntity addManufacturer(@RequestBody Manufacturer toAdd) throws InvalidObjectException {
+        Manufacturer completed = service.addManufacturer(toAdd);
+
+        return ResponseEntity.ok(toAdd);
+    }
+
+    @DeleteMapping("/manufacturer/remove/{id}")
+    public String removeManufacturer(@PathVariable Integer id) {
+
+        service.removeManufacturerById(id);
+
+        return "The manufacturer with id "+id+" was removed.";
+    }
+
+    @PostMapping("/manufacturer/edit/{id}")
+    public String editManufacturer(@PathVariable Integer id,@RequestBody Manufacturer toEdit){
+
+        service.editManufacturer(id,toEdit);
+
+        return "The manufacturer with id "+id+" was edited.";
+
+    }
+
+    @GetMapping("/manufacturer/{id}")
+    public ResponseEntity getManufacturerById(@PathVariable Integer id){
+
+        Manufacturer retrieved = service.getManufacturerById(id);
+
+        return ResponseEntity.ok(retrieved);
+    }
+
+
+
+
+
+    //getAll        @get    ActionType
+    //add           @post   Caliber
+    //removeById    @delete FirearmType
+    //edit(by id)   @post   Manufacturer
+    //getById       @get
+
 
 }

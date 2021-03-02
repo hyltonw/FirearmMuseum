@@ -1,4 +1,4 @@
-package com.FirearmMuseum.FirearmMuseum.persistence;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
 
 import com.FirearmMuseum.FirearmMuseum.exceptions.InvalidFirearmIdException;
 import com.FirearmMuseum.FirearmMuseum.models.Caliber;

@@ -1,16 +1,19 @@
-package com.FirearmMuseum.FirearmMuseum.persistence;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
 
 import com.FirearmMuseum.FirearmMuseum.models.FirearmType;
+import com.FirearmMuseum.FirearmMuseum.persistence.Dao.FirearmTypeDao;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.FirearmTypeIdMapper;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.FirearmTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.io.InvalidObjectException;
 import java.util.List;
 
-public class PostgresFirearmTypeDao {
+@Component
+public class PostgresFirearmTypeDao implements FirearmTypeDao {
 
     @Autowired
     JdbcTemplate template;
@@ -94,4 +97,6 @@ public class PostgresFirearmTypeDao {
             throw new IllegalArgumentException("Firearm type with id " + id + " does not exist");
         return toReturn;
     }
+
+
 }

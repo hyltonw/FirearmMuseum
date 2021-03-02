@@ -66,6 +66,9 @@ public class FirearmMuseumService {
         return firearmDao.getFirearmsByYearRange(startYear,endYear);
     }
 
+
+
+
     public List<ActionType> getAllActionTypes(){ return actionTypeDao.getAllActionTypes();}
 
     public ActionType addActionType(ActionType toAdd) throws InvalidObjectException { return actionTypeDao.addActionType(toAdd);}
@@ -75,6 +78,8 @@ public class FirearmMuseumService {
     public void editActionType(Integer id, ActionType toEdit){ actionTypeDao.editActionType(id, toEdit);}
 
     public ActionType getActionTypeById(Integer id){ return actionTypeDao.getActionTypeById(id);}
+
+
 
 
     public List<Caliber> getAllCalibers(){ return caliberDao.getAllCalibers();}
@@ -88,20 +93,24 @@ public class FirearmMuseumService {
     public Caliber getCaliberById(Integer id) { return caliberDao.getCaliberById(id);}
 
 
+
+
     public List<FirearmType> getAllFirearmTypes(){ return firearmTypeDao.getAllFirearmTypes();}
 
-    public FirearmType addFirearmType(FirearmType toAdd) { return firearmTypeDao.addFirearmType(toAdd);}
+    public FirearmType addFirearmType(FirearmType toAdd) throws InvalidObjectException { return firearmTypeDao.addFirearmType(toAdd);}
 
-    public void removeFirearmTypeById(Integer id) { firearmTypeDao.removeFirearmType(id);}
+    public void removeFirearmTypeById(Integer id) { firearmTypeDao.removeFirearmTypeById(id);}
 
     public void editFirearmType(Integer id, FirearmType toEdit ) { firearmTypeDao.editFirearmType(id,toEdit);}
 
     public FirearmType getFirearmTypeById (Integer id){ return firearmTypeDao.getFirearmTypeById(id);}
 
 
+
+
     public List<Manufacturer> getAllManufacturers(){ return manufacturerDao.getAllManufacturers();}
 
-    public Manufacturer addManufacturer(Manufacturer toAdd) { return manufacturerDao.addManufacturer(toAdd);}
+    public Manufacturer addManufacturer(Manufacturer toAdd) throws InvalidObjectException { return manufacturerDao.addManufacturer(toAdd);}
 
     public void removeManufacturerById(Integer id){ manufacturerDao.removeManufacturerById(id);}
 

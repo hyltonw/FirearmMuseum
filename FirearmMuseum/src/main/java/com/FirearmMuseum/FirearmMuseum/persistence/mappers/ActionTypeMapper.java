@@ -1,7 +1,6 @@
 package com.FirearmMuseum.FirearmMuseum.persistence.mappers;
 
 import com.FirearmMuseum.FirearmMuseum.models.ActionType;
-import com.FirearmMuseum.FirearmMuseum.models.FirearmType;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

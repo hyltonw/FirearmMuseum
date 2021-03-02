@@ -1,22 +1,25 @@
-package com.FirearmMuseum.FirearmMuseum.persistence;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
 
 import com.FirearmMuseum.FirearmMuseum.models.Manufacturer;
+import com.FirearmMuseum.FirearmMuseum.persistence.Dao.ManufacturerDao;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.ManufacturerIdMapper;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.ManufacturerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.io.InvalidObjectException;
 import java.util.List;
 
-public class PostgresManufacturerDao {
+@Component
+public class PostgresManufacturerDao implements ManufacturerDao {
 
     @Autowired
     JdbcTemplate template;
 
     public List<Manufacturer> getAllManufacturers(){
-        List<Manufacturer> allManufacturers = template.query("SELECT * FROM \"Manufacturers\"",
+        List<Manufacturer> allManufacturers = template.query("SELECT * FROM \"Manufacturer\"",
                 new ManufacturerMapper());
 
         return allManufacturers;

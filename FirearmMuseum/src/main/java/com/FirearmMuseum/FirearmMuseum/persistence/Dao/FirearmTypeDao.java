@@ -1,19 +1,19 @@
 package com.FirearmMuseum.FirearmMuseum.persistence.Dao;
 
-import com.FirearmMuseum.FirearmMuseum.models.Firearm;
 import com.FirearmMuseum.FirearmMuseum.models.FirearmType;
 
+import java.io.InvalidObjectException;
 import java.util.List;
 
 public interface FirearmTypeDao {
 
     List<FirearmType> getAllFirearmTypes();
 
-    FirearmType addFirearmType(FirearmType toAdd);
+    FirearmType addFirearmType(FirearmType toAdd) throws InvalidObjectException;
 
     void editFirearmType(Integer id, FirearmType toEdit);
 
-    void removeFirearmType(Integer id);
+    void removeFirearmTypeById(Integer id);
 
     FirearmType getFirearmTypeById(Integer id);
 }

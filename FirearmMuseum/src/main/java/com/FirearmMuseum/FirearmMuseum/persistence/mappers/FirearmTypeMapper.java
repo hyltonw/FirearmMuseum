@@ -11,7 +11,7 @@ public class FirearmTypeMapper implements RowMapper<FirearmType> {
     public FirearmType mapRow(ResultSet resultSet, int i) throws SQLException {
         FirearmType mappedFirearmType = new FirearmType();
         mappedFirearmType.setFirearmTypeId(resultSet.getInt("firearmtypeid"));
-        mappedFirearmType.setFirearmType(resultSet.getString("actiontypename"));
+        mappedFirearmType.setFirearmType(resultSet.getString("firearmtypename"));
 
         return mappedFirearmType;
     }

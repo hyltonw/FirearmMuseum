@@ -1,4 +1,4 @@
-package com.FirearmMuseum.FirearmMuseum.persistence;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
 
 import com.FirearmMuseum.FirearmMuseum.models.ActionType;
 import com.FirearmMuseum.FirearmMuseum.persistence.Dao.ActionTypeDao;
@@ -7,10 +7,12 @@ import com.FirearmMuseum.FirearmMuseum.persistence.mappers.ActionTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.io.InvalidObjectException;
 import java.util.List;
 
+@Component
 public class PostgresActionTypeDao implements ActionTypeDao {
 
     @Autowired
