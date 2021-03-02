@@ -2,7 +2,7 @@ package com.FirearmMuseum.FirearmMuseum.daos;
 
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
 import com.FirearmMuseum.FirearmMuseum.models.Firearm;
-import com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao.PostgresFirearmDao;
+import com.FirearmMuseum.FirearmMuseum.persistence.PostgresDao.PostgresFirearmDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

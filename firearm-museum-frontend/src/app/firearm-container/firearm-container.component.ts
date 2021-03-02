@@ -14,6 +14,10 @@ export class FirearmContainerComponent implements OnInit {
   constructor(private firearmService : MuseumService) { }
 
   ngOnInit(): void {
+    this.firearmService.getAllFirearms().subscribe(list => {
+      this.firearms = list
+    })
+    console.log(this.firearms)
   }
 
 }

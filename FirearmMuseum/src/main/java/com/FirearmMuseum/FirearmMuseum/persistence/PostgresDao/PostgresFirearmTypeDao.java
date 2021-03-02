@@ -1,8 +1,8 @@
-package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostgresDao;
 
 import com.FirearmMuseum.FirearmMuseum.models.FirearmType;
 import com.FirearmMuseum.FirearmMuseum.persistence.Dao.FirearmTypeDao;
-import com.FirearmMuseum.FirearmMuseum.persistence.mappers.FirearmTypeIdMapper;
+import com.FirearmMuseum.FirearmMuseum.persistence.mappers.idMappers.FirearmTypeIdMapper;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.FirearmTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

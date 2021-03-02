@@ -9,12 +9,12 @@ public class Manufacturer {
 
     }
 
-    Manufacturer(Integer manufacturerId, String manufacturer){
+    public Manufacturer(Integer manufacturerId, String manufacturer){
         this.manufacturerId = manufacturerId;
         this.manufacturer = manufacturer;
     }
 
-    Manufacturer(Manufacturer that){
+    public Manufacturer(Manufacturer that){
         this.manufacturerId = that.manufacturerId;
         this.manufacturer = that.manufacturer;
     }

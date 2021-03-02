@@ -13,7 +13,9 @@ export class MuseumService {
   baseURL : string = "http://localhost:8080/api";
   httpOptions = {headers: new HttpHeaders({"Content-Type": "application/json"})}
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) { 
+
+  }
 
   getAllFirearms() : Observable<Firearm[]> {
     return this.http.get<Firearm[]>(this.baseURL + "/firearms")

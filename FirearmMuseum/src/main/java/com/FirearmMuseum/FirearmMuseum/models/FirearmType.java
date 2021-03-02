@@ -9,12 +9,12 @@ public class FirearmType {
 
     }
 
-    FirearmType(Integer firearmTypeId, String firearmType){
+    public FirearmType(Integer firearmTypeId, String firearmType){
         this.firearmTypeId = firearmTypeId;
         this.firearmType = firearmType;
     }
 
-    FirearmType(FirearmType that){
+    public FirearmType(FirearmType that){
         this.firearmTypeId = that.firearmTypeId;
         this.firearmType = that.firearmType;
     }
@@ -24,7 +24,7 @@ public class FirearmType {
     }
 
     public void setFirearmTypeId(Integer firearmTypeId) {
-        firearmTypeId = firearmTypeId;
+        this.firearmTypeId = firearmTypeId;
     }
 
     public String getFirearmType() {
@@ -32,6 +32,6 @@ public class FirearmType {
     }
 
     public void setFirearmType(String firearmType) {
-        firearmType = firearmType;
+        this.firearmType = firearmType;
     }
 }

@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins="http://localhost:4200")
 public class FirearmMuseumController {
 
     @Autowired
@@ -68,7 +69,7 @@ public class FirearmMuseumController {
 
     @GetMapping("/firearm/{id}")
     public ResponseEntity getFirearmById(@PathVariable Integer id){
-        Firearm retrieved;
+        HydratedFirearm retrieved;
         try {
             retrieved = service.getFirearmById(id);
         } catch (InvalidFirearmIdException e){

@@ -11,9 +11,11 @@ public class ActionTypeMapper implements RowMapper<ActionType> {
     @Override
     public ActionType mapRow(ResultSet resultSet, int i) throws SQLException {
         ActionType  mappedActionType = new ActionType();
-        mappedActionType.setActionTypeId(resultSet.getInt("actiontypeid"));
-        mappedActionType.setActionType(resultSet.getString("actiontypename"));
+        Integer x = resultSet.getInt("actiontypeid");
+        String y = resultSet.getString("actiontypename");
 
+        mappedActionType.setActionTypeId(x);
+        mappedActionType.setActionType(y);
         return mappedActionType;
     }
 }

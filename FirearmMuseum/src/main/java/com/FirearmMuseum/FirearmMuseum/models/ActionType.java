@@ -24,7 +24,7 @@ public class ActionType {
     }
 
     public void setActionTypeId(Integer actionTypeId) {
-        actionTypeId = actionTypeId;
+        this.actionTypeId = actionTypeId;
     }
 
     public String getActionType() {
@@ -32,7 +32,7 @@ public class ActionType {
     }
 
     public void setActionType(String actionType) {
-        actionType = actionType;
+        this.actionType = actionType;
     }
 
 }

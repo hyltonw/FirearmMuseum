@@ -1,9 +1,8 @@
-package com.FirearmMuseum.FirearmMuseum.persistence.PostGresDao;
+package com.FirearmMuseum.FirearmMuseum.persistence.PostgresDao;
 
-import com.FirearmMuseum.FirearmMuseum.exceptions.InvalidFirearmIdException;
 import com.FirearmMuseum.FirearmMuseum.models.Caliber;
 import com.FirearmMuseum.FirearmMuseum.persistence.Dao.CaliberDao;
-import com.FirearmMuseum.FirearmMuseum.persistence.mappers.CaliberIdMapper;
+import com.FirearmMuseum.FirearmMuseum.persistence.mappers.idMappers.CaliberIdMapper;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.CaliberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;

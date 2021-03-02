@@ -1,4 +1,4 @@
-package com.FirearmMuseum.FirearmMuseum.persistence.mappers;
+package com.FirearmMuseum.FirearmMuseum.persistence.mappers.idMappers;
 
 import org.springframework.jdbc.core.RowMapper;
 
