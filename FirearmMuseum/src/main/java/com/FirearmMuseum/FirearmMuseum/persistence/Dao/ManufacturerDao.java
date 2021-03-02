@@ -12,7 +12,7 @@ public interface ManufacturerDao {
 
     void editManufacturer(Integer id, Manufacturer toEdit);
 
-    Manufacturer removeManufacturerById(Integer id);
+    void removeManufacturerById(Integer id);
 
     Manufacturer getManufacturerById(Integer id);
 

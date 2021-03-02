@@ -13,7 +13,7 @@ public interface FirearmTypeDao {
 
     void editFirearmType(Integer id, FirearmType toEdit);
 
-    FirearmType removeFirearmType(Integer id);
+    void removeFirearmType(Integer id);
 
     FirearmType getFirearmTypeById(Integer id);
 }

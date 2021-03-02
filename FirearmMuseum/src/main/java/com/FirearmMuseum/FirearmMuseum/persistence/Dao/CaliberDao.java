@@ -10,7 +10,7 @@ public interface CaliberDao {
 
     Caliber addCaliber(Caliber toAdd) throws InvalidObjectException;
 
-    Caliber removeCaliberById(Integer id);
+    void removeCaliberById(Integer id);
 
     void editCaliber(Integer id, Caliber toEdit);
 

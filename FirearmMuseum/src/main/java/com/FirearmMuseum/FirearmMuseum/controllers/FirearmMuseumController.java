@@ -92,6 +92,12 @@ public class FirearmMuseumController {
         return service.getAllCalibers();
     }
 
+    @PostMapping("/caliber/edit/{id}")
+    public String editCaliber(@PathVariable Integer id,@RequestBody Caliber toEdit){
+        service.editCaliber(id,toEdit);
+        return "The caliber with id " + id + " was editied";
+    }
+
 
 //    @GetMapping("/firearms/dates/{date1}/{date2}")
 //    public List<Firearm> getFirearmsBetweenDates(Integer date1, Integer date2){

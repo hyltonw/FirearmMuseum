@@ -1,14 +1,13 @@
 package com.FirearmMuseum.FirearmMuseum.services;
 
 import com.FirearmMuseum.FirearmMuseum.exceptions.*;
-import com.FirearmMuseum.FirearmMuseum.models.Caliber;
-import com.FirearmMuseum.FirearmMuseum.models.Firearm;
-//import com.FirearmMuseum.FirearmMuseum.persistence.Dao.CaliberDao;
+import com.FirearmMuseum.FirearmMuseum.models.*;
 import com.FirearmMuseum.FirearmMuseum.persistence.Dao.CaliberDao;
-import com.FirearmMuseum.FirearmMuseum.persistence.Dao.FirearmDao;
+import com.FirearmMuseum.FirearmMuseum.persistence.Dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.io.InvalidObjectException;
 import java.util.List;
 
 @Component
@@ -19,6 +18,15 @@ public class FirearmMuseumService {
 
     @Autowired
     CaliberDao caliberDao;
+
+    @Autowired
+    ActionTypeDao actionTypeDao;
+
+    @Autowired
+    FirearmTypeDao firearmTypeDao;
+
+    @Autowired
+    ManufacturerDao manufacturerDao;
 
 //    @Autowired
 //    CaliberDao caliberDao;
@@ -58,7 +66,47 @@ public class FirearmMuseumService {
         return firearmDao.getFirearmsByYearRange(startYear,endYear);
     }
 
-    public List<Caliber> getAllCalibers(){
-        return caliberDao.getAllCalibers();
-    }
+    public List<ActionType> getAllActionTypes(){ return actionTypeDao.getAllActionTypes();}
+
+    public ActionType addActionType(ActionType toAdd) throws InvalidObjectException { return actionTypeDao.addActionType(toAdd);}
+
+    public void removeActionTypeById(Integer id){ actionTypeDao.removeActionTypeById(id);}
+
+    public void editActionType(Integer id, ActionType toEdit){ actionTypeDao.editActionType(id, toEdit);}
+
+    public ActionType getActionTypeById(Integer id){ return actionTypeDao.getActionTypeById(id);}
+
+
+    public List<Caliber> getAllCalibers(){ return caliberDao.getAllCalibers();}
+
+    public Caliber addCaliber(Caliber toAdd) throws InvalidObjectException { return caliberDao.addCaliber(toAdd);}
+
+    public void removeCaliberById(Integer id) { caliberDao.removeCaliberById(id);}
+
+    public void editCaliber(Integer id, Caliber toEdit){ caliberDao.editCaliber(id, toEdit);}
+
+    public Caliber getCaliberById(Integer id) { return caliberDao.getCaliberById(id);}
+
+
+    public List<FirearmType> getAllFirearmTypes(){ return firearmTypeDao.getAllFirearmTypes();}
+
+    public FirearmType addFirearmType(FirearmType toAdd) { return firearmTypeDao.addFirearmType(toAdd);}
+
+    public void removeFirearmTypeById(Integer id) { firearmTypeDao.removeFirearmType(id);}
+
+    public void editFirearmType(Integer id, FirearmType toEdit ) { firearmTypeDao.editFirearmType(id,toEdit);}
+
+    public FirearmType getFirearmTypeById (Integer id){ return firearmTypeDao.getFirearmTypeById(id);}
+
+
+    public List<Manufacturer> getAllManufacturers(){ return manufacturerDao.getAllManufacturers();}
+
+    public Manufacturer addManufacturer(Manufacturer toAdd) { return manufacturerDao.addManufacturer(toAdd);}
+
+    public void removeManufacturerById(Integer id){ manufacturerDao.removeManufacturerById(id);}
+
+    public void editManufacturer(Integer id, Manufacturer toEdit){ manufacturerDao.editManufacturer(id,toEdit);}
+
+    public Manufacturer getManufacturerById( Integer id) { return manufacturerDao.getManufacturerById(id);}
+
 }

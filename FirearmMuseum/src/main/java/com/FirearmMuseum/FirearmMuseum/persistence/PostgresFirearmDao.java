@@ -65,7 +65,7 @@ public class PostgresFirearmDao implements FirearmDao {
                     toAdd.getCaliberId());
                     toAdd.setFirearmId( firearmId );
         } catch(DataIntegrityViolationException e){
-            throw new DataIntegrityViolationException("An invalid id has been entered.");
+            throw new DataIntegrityViolationException("An invalid id was entered.");
         }
 
 
@@ -79,7 +79,7 @@ public class PostgresFirearmDao implements FirearmDao {
     @Override
     public void removeFirearmById(Integer id) throws InvalidFirearmIdException {
         boolean idExists = false;
-        for (int i = 0; i < getAllFirearms().size(); i++) {
+        for (int i = 0; i < getAllFirearms().size() && !idExists; i++) {
             if(getAllFirearms().get(i).getFirearmId().equals(id)){
                 idExists=true;
             }

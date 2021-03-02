@@ -1,9 +1,12 @@
 package com.FirearmMuseum.FirearmMuseum.persistence;
 
+import com.FirearmMuseum.FirearmMuseum.exceptions.InvalidFirearmIdException;
 import com.FirearmMuseum.FirearmMuseum.models.Caliber;
 import com.FirearmMuseum.FirearmMuseum.persistence.Dao.CaliberDao;
+import com.FirearmMuseum.FirearmMuseum.persistence.mappers.CaliberIdMapper;
 import com.FirearmMuseum.FirearmMuseum.persistence.mappers.CaliberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -40,22 +43,73 @@ public class PostgresCaliberDao implements CaliberDao {
         try{
             Integer caliberId = template.queryForObject("INSERT INTO \"Caliber\" (\"calibersize\",\"caliberunit\")" +
                     "VALUES (?,?) RETURNING \"caliberid\";",
-                    new )
+                    new CaliberIdMapper(),
+                    toAdd.getCaliberSize(),
+                    toAdd.getCaliberUnit());
+                    toAdd.setCaliberId(caliberId);
+        } catch (DataIntegrityViolationException e){
+            throw new DataIntegrityViolationException("an invalid Id was entered");
         }
+
+        if(toAdd.getCaliberId()==null){
+            throw new IllegalArgumentException("the caliber id was null");
+        }
+        return toAdd;
     }
 
     @Override
-    public Caliber removeCaliberById(Integer id) {
-        return null;
+    public void removeCaliberById(Integer id) {
+        boolean idEXists = false;
+        for(int i = 0;i < getAllCalibers().size() && !idEXists;i++){
+            if(getAllCalibers().get(i).getCaliberId().equals(id))
+                idEXists=true;
+        }
+
+        if(idEXists) {
+            template.update("DELETE FROM \"Caliber\"" +
+                    "WHERE \"Caliber\".caliberid = '" + id + "';");
+        } else
+            throw new IllegalArgumentException("The caliber with that id doesn't exist");
     }
 
     @Override
     public void editCaliber(Integer id, Caliber toEdit) {
 
+        boolean idExists = false;
+        for (int i = 0; i < getAllCalibers().size(); i++) {
+            if(getAllCalibers().get(i).getCaliberId().equals(id)){
+                idExists=true;
+            }
+        }
+
+        if(!idExists)
+            throw new IllegalArgumentException("The id entered does not exist");
+
+        String newCaliberUnit = toEdit.getCaliberUnit();
+        Double newCaliberSize = toEdit.getCaliberSize();
+        Caliber original = getCaliberById(id);
+
+        if(newCaliberSize!=null){
+            template.update("UPDATE \"Caliber\" SET \"calibersize\" = '" + newCaliberSize + "' WHERE \"caliberid\" = '" + id + "';");
+            original.setCaliberSize(newCaliberSize);
+        }
+        if(newCaliberUnit!=null){
+            template.update("UPDATE \"Caliber\" SET \"caliberunit\" = '" + newCaliberUnit + "' WHERE \"caliberid\" = '" + id + "';");
+            original.setCaliberUnit(newCaliberUnit);
+        }
     }
 
     @Override
     public Caliber getCaliberById(Integer id) {
-        return null;
+        Caliber toReturn = null;
+
+        for (int i = 0; i < getAllCalibers().size(); i++) {
+            if(id == getAllCalibers().get(i).getCaliberId()){
+                toReturn = getAllCalibers().get(i);
+            }
+        }
+        if(toReturn==null)
+            throw new IllegalArgumentException("Caliber with id " + id + " does not exist");
+        return toReturn;
     }
 }
