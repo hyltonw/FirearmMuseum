@@ -5,6 +5,7 @@ import {of} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Firearm } from './models/firearm';
 import { Caliber } from './models/caliber';
+import { HydratedFirearm } from './models/hydrated-firearm';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,18 @@ export class MuseumService {
         console.log(err);
         let empty : Firearm[] = [];
         return of(empty);
+      })
+    )
+  }
+
+  getAllHydratedFirearms() : Observable<HydratedFirearm[]> {
+    return this.http.get<HydratedFirearm[]>(this.baseURL + "/hydratedfirearms",this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        let empty : HydratedFirearm[] = [];
+        return of(empty)
       })
     )
   }

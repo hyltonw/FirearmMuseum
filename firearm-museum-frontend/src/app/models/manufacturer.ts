@@ -1,4 +1,4 @@
 export interface Manufacturer{
-    manufacturerId: number;
+    manufacturerId?: number;
     manufacturer: string;
 }

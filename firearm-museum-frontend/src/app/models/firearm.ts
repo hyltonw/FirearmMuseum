@@ -2,7 +2,7 @@ export interface Firearm{
     id? : number;
     name : string;
     caliberId : number;
-    manufactureId : number;
+    manufacturerId : number;
     actionTypeId : number;
     firearmTypeId : number;
     productionDate : number;

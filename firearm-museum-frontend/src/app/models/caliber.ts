@@ -1,5 +1,5 @@
 export interface Caliber{
-    caliberId: number;
+    caliberId?: number;
     caliberSize: number;
     caliberUnit: string;
 }

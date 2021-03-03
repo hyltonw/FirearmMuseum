@@ -1,4 +1,4 @@
 export interface FirearmType{
-    firearmTypeId: number;
-    firearemType: string;
+    firearmTypeId?: number;
+    firearmType: string;
 }

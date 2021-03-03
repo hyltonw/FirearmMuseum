@@ -12,7 +12,7 @@ export class AddFirearmComponent implements OnInit {
 
   name : string;
   caliberId : number;
-  manufactureId : number;
+  manufacturerId : number;
   actionTypeId : number;
   firearmTypeId : number;
   productionDate : number;
@@ -26,13 +26,18 @@ export class AddFirearmComponent implements OnInit {
   }
 
   addFirearm() {
+    if(this.productionDate > 2021 || this.productionDate < 1688){
+      alert("wrong date");
+      return;
+    }
     let toAdd : Firearm = {
-      name: this.name, caliberId: this.caliberId, manufactureId : this.manufactureId, 
+      name: this.name, 
+      caliberId: this.caliberId, manufacturerId : this.manufacturerId, 
       actionTypeId: this.actionTypeId, firearmTypeId : this.firearmTypeId, 
       productionDate : this.productionDate, serialNumber : this.serialNumber,
       description : this.description, donatedBy : this.donatedBy}
-    
-      this.service.addFirearm(toAdd).subscribe((_) => {this.router.navigate([""])})
+      console.log(toAdd);
+      this.service.addFirearm(toAdd).subscribe(a => console.log(a));
   }
 
 }
