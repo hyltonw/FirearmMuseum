@@ -4,6 +4,7 @@ import {tap, catchError} from 'rxjs/operators';
 import {of} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Firearm } from './models/firearm';
+import { Caliber } from './models/caliber';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,18 @@ export class MuseumService {
 
   constructor(private http : HttpClient) { 
 
+  }
+
+  getAllCalibers() : Observable<Caliber[]> {
+    return this.http.get<Caliber[]>(this.baseURL+"/caliber")
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        let empty : Caliber[] = [];
+        return of(empty)
+      })
+    )
   }
 
   getAllFirearms() : Observable<Firearm[]> {
