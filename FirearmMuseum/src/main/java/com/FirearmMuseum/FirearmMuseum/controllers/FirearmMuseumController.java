@@ -20,16 +20,15 @@ public class FirearmMuseumController {
     @Autowired
     FirearmMuseumService service;
 
-    @GetMapping("/firearms")
-    public List<HydratedFirearm> getAllFirearms(){
-        return service.getAllFirearms();
+    @GetMapping("/hydratedfirearms")
+    public List<HydratedFirearm> getAllFirearmHydratedFirearms(){
+        return service.getAllHydratedFirearms();
     }
 
-
-//    @GetMapping("/firearms")
-//    public List<Firearm> getAllFirearms(){
-//        return service.getAllFirearms();
-//    }
+    @GetMapping("/firearms")
+    public List<Firearm> getAllFirearms(){
+        return service.getAllFirearms();
+    }
 
     @PostMapping("/firearm/add")
     public ResponseEntity addFirearm(@RequestBody Firearm toAdd)  {

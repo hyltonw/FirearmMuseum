@@ -36,7 +36,7 @@ public class FirearmMuseumService {
 //        return firearmDao.getAllFirearms();
 //    }
 
-    public List<HydratedFirearm> getAllFirearms(){
+    public List<HydratedFirearm> getAllHydratedFirearms(){
 
         List<Firearm> arr = firearmDao.getAllFirearms();
         List<HydratedFirearm> toReturn = new ArrayList<>();
@@ -52,6 +52,10 @@ public class FirearmMuseumService {
         }
 
         return toReturn;
+    }
+
+    public List<Firearm> getAllFirearms(){
+        return firearmDao.getAllFirearms();
     }
 
     public Firearm addFirearm(Firearm toAdd)throws InvalidFirearmTypeIdException, InvalidActionTypeIdException,
