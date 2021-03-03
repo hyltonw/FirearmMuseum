@@ -32,6 +32,10 @@ public class FirearmMuseumService {
 //    @Autowired
 //    CaliberDao caliberDao;
 
+//    public List<Firearm> getAllFirearms(){
+//        return firearmDao.getAllFirearms();
+//    }
+
     public List<HydratedFirearm> getAllFirearms(){
 
         List<Firearm> arr = firearmDao.getAllFirearms();
@@ -73,8 +77,14 @@ public class FirearmMuseumService {
         return firearmDao.getFilteredFirearms(toSearch);
     }
 
-    public Firearm getFirearmById(Integer id) throws InvalidFirearmIdException {
-        return firearmDao.getFirearmById(id);
+    public HydratedFirearm getFirearmById(Integer id) throws InvalidFirearmIdException {
+        Firearm toHydrate = firearmDao.getFirearmById(id);
+        HydratedFirearm toReturn = new HydratedFirearm(toHydrate);
+        toReturn.setActionType(actionTypeDao.getActionTypeById(toHydrate.getActionTypeId()));
+        toReturn.setCaliber(caliberDao.getCaliberById(toHydrate.getCaliberId()));
+        toReturn.setFirearmType(firearmTypeDao.getFirearmTypeById(toHydrate.getFirearmTypeId()));
+        toReturn.setManufacturer(manufacturerDao.getManufacturerById(toHydrate.getManufacturerId()));
+        return toReturn;
     }
 
     public List<Firearm> getFirearmsByYearRange(int startYear, int endYear) {

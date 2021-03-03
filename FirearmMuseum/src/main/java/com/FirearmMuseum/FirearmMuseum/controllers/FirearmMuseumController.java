@@ -25,6 +25,12 @@ public class FirearmMuseumController {
         return service.getAllFirearms();
     }
 
+
+//    @GetMapping("/firearms")
+//    public List<Firearm> getAllFirearms(){
+//        return service.getAllFirearms();
+//    }
+
     @PostMapping("/firearm/add")
     public ResponseEntity addFirearm(@RequestBody Firearm toAdd)  {
         try {
@@ -69,7 +75,7 @@ public class FirearmMuseumController {
 
     @GetMapping("/firearm/{id}")
     public ResponseEntity getFirearmById(@PathVariable Integer id){
-        Firearm retrieved;
+        HydratedFirearm retrieved;
         try {
             retrieved = service.getFirearmById(id);
         } catch (InvalidFirearmIdException e){
