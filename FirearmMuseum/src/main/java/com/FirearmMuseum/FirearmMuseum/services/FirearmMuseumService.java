@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.InvalidObjectException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -31,8 +32,22 @@ public class FirearmMuseumService {
 //    @Autowired
 //    CaliberDao caliberDao;
 
-    public List<Firearm> getAllFirearms(){
-        return firearmDao.getAllFirearms();
+    public List<HydratedFirearm> getAllFirearms(){
+
+        List<Firearm> arr = firearmDao.getAllFirearms();
+        List<HydratedFirearm> toReturn = new ArrayList<>();
+        for (int i = 0; i < arr.size(); i++) {
+            Firearm toHydrate = arr.get(i);
+            HydratedFirearm toArray = new HydratedFirearm(toHydrate);
+
+            toArray.setActionType(actionTypeDao.getActionTypeById(toHydrate.getActionTypeId()));
+            toArray.setCaliber(caliberDao.getCaliberById(toHydrate.getCaliberId()));
+            toArray.setFirearmType(firearmTypeDao.getFirearmTypeById(toHydrate.getFirearmTypeId()));
+            toArray.setManufacturer(manufacturerDao.getManufacturerById(toHydrate.getManufacturerId()));
+            toReturn.add(toArray);
+        }
+
+        return toReturn;
     }
 
     public Firearm addFirearm(Firearm toAdd)throws InvalidFirearmTypeIdException, InvalidActionTypeIdException,
@@ -58,14 +73,8 @@ public class FirearmMuseumService {
         return firearmDao.getFilteredFirearms(toSearch);
     }
 
-    public HydratedFirearm getFirearmById(Integer id) throws InvalidFirearmIdException {
-        Firearm toHydrate = firearmDao.getFirearmById(id);
-        HydratedFirearm toReturn = new HydratedFirearm(toHydrate);
-        toReturn.setActionType(actionTypeDao.getActionTypeById(toHydrate.getActionTypeId()));
-        toReturn.setCaliber(caliberDao.getCaliberById(toHydrate.getCaliberId()));
-        toReturn.setFirearmType(firearmTypeDao.getFirearmTypeById(toHydrate.getFirearmTypeId()));
-        toReturn.setManufacturer(manufacturerDao.getManufacturerById(toHydrate.getManufacturerId()));
-        return toReturn;
+    public Firearm getFirearmById(Integer id) throws InvalidFirearmIdException {
+        return firearmDao.getFirearmById(id);
     }
 
     public List<Firearm> getFirearmsByYearRange(int startYear, int endYear) {
