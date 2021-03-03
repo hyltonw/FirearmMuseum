@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import {tap, catchError} from 'rxjs/operators';
 import {of} from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Firearm } from './Firearm';
+import { Firearm } from './models/firearm';
 
 @Injectable({
   providedIn: 'root'

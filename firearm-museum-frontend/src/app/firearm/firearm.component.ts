@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Firearm } from '../Firearm';
+import { Firearm } from '../models/firearm';
 
 @Component({
   selector: 'app-firearm',
