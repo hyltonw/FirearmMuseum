@@ -20,7 +20,7 @@ public class FirearmMuseumController {
     @Autowired
     FirearmMuseumService service;
 
-    @GetMapping("/hydratedfirearms")
+    @GetMapping("/hydratedfirearm")
     public List<HydratedFirearm> getAllFirearmHydratedFirearms(){
         return service.getAllHydratedFirearms();
     }
