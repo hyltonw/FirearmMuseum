@@ -1,13 +1,20 @@
-<p>Id: {{hydratedFirearm.firearmId}}</p>
-<p>name: {{hydratedFirearm.name}}</p>
-<p>caliber id: {{hydratedFirearm.caliber}}</p>
-<p>Manufacturer id: {{hydratedFirearm.manufacturer}}</p>
-<p>action type id: {{hydratedFirearm.actionType}}</p>
-<p>firearm type id: {{hydratedFirearm.firearmType}}</p>
-<p>production date: {{hydratedFirearm.productionDate}}</p>
-<p>serial number: {{hydratedFirearm.serialNumber}}</p>
-<p>description: {{hydratedFirearm.description}}</p>
-<p>donated by: {{hydratedFirearm.donatedBy}}</p>
+<div class="infoCard">
+    <div class="imgContainer"style="display: inline-block;" >
+        <img src="../../../assets/1.jpg">
+    </div>
+    <div style="display: inline-block;" >
+        <p>Id: {{hydratedFirearm.firearmId}}</p>
+        <p>name: {{hydratedFirearm.name}}</p>
+        <p>caliber: {{hydratedFirearm.caliber.caliberSize}} {{hydratedFirearm.caliber.caliberUnit}}</p>
+        <p>Manufacturer: {{hydratedFirearm.manufacturer.manufacturer}}</p>
+        <p>action: {{hydratedFirearm.actionType.actionType}}</p>
+        <p>firearm class: {{hydratedFirearm.firearmType.firearmType}}</p>
+        <p>production year: {{hydratedFirearm.productionDate}}</p>
+        <p>serial number: {{hydratedFirearm.serialNumber}}</p>
+        <p>description: {{hydratedFirearm.description}}</p>
+        <p>donated by: {{hydratedFirearm.donatedBy}}</p>
+    </div>
+</div>
 
 <!-- firearmId : number;
     name : string;

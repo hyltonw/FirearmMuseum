@@ -15,6 +15,7 @@ export class ManufacturerContainerComponent implements OnInit {
   ngOnInit(): void { 
     this.manufacturerservice.getAllManufacturers().subscribe( list => {
       this.manufacturers = list;
+      console.log(this.manufacturers[0])
     })
   }
 

@@ -20,6 +20,7 @@ import { ActionTypeContainerComponent } from './containers/action-type-container
 import { FirearmTypeContainerComponent } from './containers/firearm-type-container/firearm-type-container.component';
 import { ManufacturerContainerComponent } from './containers/manufacturer-container/manufacturer-container.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
+import { AddpageComponent } from './views/addpage/addpage.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HomepageComponent } from './views/homepage/homepage.component';
     ActionTypeContainerComponent,
     FirearmTypeContainerComponent,
     ManufacturerContainerComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddpageComponent
   ],
   imports: [
     BrowserModule,
