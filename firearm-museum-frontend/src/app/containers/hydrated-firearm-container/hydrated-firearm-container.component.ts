@@ -17,7 +17,7 @@ export class HydratedFirearmContainerComponent implements OnInit {
     
     this.hydrateFirearmService.getAllHydratedFirearms().subscribe( list => {
       this.hydratedFirearms = list
-      console.log(this.hydratedFirearms[0])
+      console.log("first firearm in list "+this.hydratedFirearms[0])
 
     })
   }

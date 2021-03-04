@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Manufacturer } from 'src/app/models/manufacturer';
+import { MuseumService } from 'src/app/museum.service';
 
 @Component({
   selector: 'app-manufacturer-container',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManufacturerContainerComponent implements OnInit {
 
-  constructor() { }
+  @Input() manufacturers : Manufacturer[];
+  constructor(private manufacturerservice : MuseumService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.manufacturerservice.getAllManufacturers().subscribe( list => {
+      this.manufacturers = list;
+    })
   }
 
 }

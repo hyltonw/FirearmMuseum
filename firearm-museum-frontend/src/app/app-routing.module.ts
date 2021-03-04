@@ -4,7 +4,7 @@ import { AddFirearmComponent } from './adders/add-firearm/add-firearm.component'
 import { CaliberContainerComponent } from './containers/caliber-container/caliber-container.component';
 import { FirearmContainerComponent } from './containers/firearm-container/firearm-container.component';
 import { HydratedFirearmContainerComponent } from './containers/hydrated-firearm-container/hydrated-firearm-container.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './views/homepage/homepage.component';
 import { HydratedFirearmComponent } from './model-components/hydrated-firearm/hydrated-firearm.component';
 
 const routes: Routes = [{path: "", component: HomepageComponent},

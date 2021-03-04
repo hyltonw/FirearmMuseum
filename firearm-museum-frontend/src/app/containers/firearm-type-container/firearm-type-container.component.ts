@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FirearmType } from 'src/app/models/firearm-type';
+import { MuseumService } from 'src/app/museum.service';
 
 @Component({
   selector: 'app-firearm-type-container',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirearmTypeContainerComponent implements OnInit {
 
-  constructor() { }
+  @Input() firearmtypes : FirearmType[];
 
-  ngOnInit(): void {
+  constructor(private firearmtypeservice : MuseumService ) {}
+
+  ngOnInit(): void { 
+    this.firearmtypeservice.getAllFirearmTypes().subscribe( list => {
+      this.firearmtypes = list;
+    })
   }
 
 }

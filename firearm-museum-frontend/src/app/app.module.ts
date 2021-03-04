@@ -19,7 +19,7 @@ import { ManufacturerComponent } from './model-components/manufacturer/manufactu
 import { ActionTypeContainerComponent } from './containers/action-type-container/action-type-container.component';
 import { FirearmTypeContainerComponent } from './containers/firearm-type-container/firearm-type-container.component';
 import { ManufacturerContainerComponent } from './containers/manufacturer-container/manufacturer-container.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './views/homepage/homepage.component';
 
 @NgModule({
   declarations: [
