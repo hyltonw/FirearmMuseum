@@ -17,20 +17,63 @@
 
 .mainbody{
     width: 100%;
-
 }
 
 .infoCard{
+    position: relative;
     background-color: gold;
-    border-style: solid;
-    border-width: 10px;
-    border-color: white;
-    width: 50%;
-    height: 500px;
+    margin-top: 50px;
+    margin-left: 5%;
+    display: inline-block;
+    width: 90%;
+    height: 400px;
 }
 
-.imgContainer{
+.information{
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    width: 35%;
+}
+
+.description{
+    position:absolute;
+    align-content: center;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
     
+}
+
+
+.imgContainer{
+    height: 80%;
+    width: 95%;
+    display: inline-block;
+    border-style: solid;
+    border-color: gold;
+    border-width: 10px;
+
+}
+
+.infoContainer{
+    height: 15%;
+    width: 100%;
+    display: inline-block;
+}
+
+img{
+    height: inherit;
+    width: inherit;
+    
+}
+
+.pageBody{
+    align-content: center;
+    display:inline-table;
 }
 
 
