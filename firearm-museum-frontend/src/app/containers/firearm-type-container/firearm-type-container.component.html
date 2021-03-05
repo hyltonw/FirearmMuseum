@@ -6,7 +6,7 @@
         <a [routerLink]="['/manufacturer']" ><div class ="routing">manufacturers</div></a>
         <a [routerLink]="['/add']" ><div class ="routing">contribute</div></a>
     </div>
-    <div class="landingPage">
+    <div class="pageBody">
         <app-firearm id="firearm" *ngFor="let firearmtype of firearmtypes" [firearmtype]="firearmtype"> </app-firearm>
     </div>
 </body>

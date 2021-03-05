@@ -4,24 +4,29 @@
     display: inline-block;
 }
 
+a{
+    color: black;
+    font-size: large;
+}
+
 .routing{
     width: 20%;
     height: 25px;
-    background-color: gray;
+    background-color: gold;
     display: inline-block;
     text-align: center;
-    outline-color: gold;
+    outline-color: goldenrod;
     outline-width: 5px;
     outline-style: solid;
-}
-
-.mainbody{
-    width: 100%;
+    position: relative;
 }
 
 .infoCard{
     position: relative;
     background-color: gold;
+    outline-width: 10px;
+    outline-style: solid;
+    outline-color: goldenrod;
     margin-top: 50px;
     margin-left: 5%;
     display: inline-block;
@@ -49,15 +54,25 @@
 }
 
 
-.imgContainer{
+.shortgun{
     height: 80%;
     width: 95%;
     display: inline-block;
     border-style: solid;
     border-color: gold;
     border-width: 10px;
-
 }
+
+.longgun{
+    height: 30%;
+    width: 95%;
+    display: inline-block;
+    border-style: solid;
+    border-color: gold;
+    border-width: 10px;
+}
+
+
 
 .infoContainer{
     height: 15%;
@@ -72,8 +87,10 @@ img{
 }
 
 .pageBody{
+    background-image: url("../src/assets/testbackground.jpg");
     align-content: center;
     display:inline-table;
+    width: 100%;
 }
 
 

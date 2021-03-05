@@ -1,6 +1,6 @@
 <div class="infoCard">
     <div class="information">
-        <img class="imgContainer" src="../../../assets/1.jpg">
+        <img [class]="containerPicker" src="../../../assets/{{hydratedFirearm.manufacturer.manufacturer}}/{{gunName}}.jpg">
         <div class="infoContainer">
             <span>{{hydratedFirearm.manufacturer.manufacturer}} {{hydratedFirearm.name}}<br>
             {{hydratedFirearm.caliber.caliberSize}} {{hydratedFirearm.caliber.caliberUnit}} 
