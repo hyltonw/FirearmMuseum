@@ -35,10 +35,11 @@ public class PostgresFirearmTypeDao implements FirearmTypeDao {
             throw new IllegalArgumentException("the entered firearm type was null");
 
         try{
-            Integer FirearmTypeId = template.queryForObject("INSERT INTO \"FirearmType\" (\"firearmtypename\")" +
-                            "VALUES (?) RETURNING \"firearmtypeid\";",
+            Integer FirearmTypeId = template.queryForObject("INSERT INTO \"FirearmType\" (\"firearmtypename\",\"firearmtypedescription\")" +
+                            "VALUES (?,?) RETURNING \"firearmtypeid\";",
                     new FirearmTypeIdMapper(),
-                    toAdd.getFirearmType());
+                    toAdd.getFirearmType(),
+                    toAdd.getFirearmTypeDescription());
                     toAdd.setFirearmTypeId( FirearmTypeId );
 
         } catch (DataIntegrityViolationException e){
@@ -63,11 +64,16 @@ public class PostgresFirearmTypeDao implements FirearmTypeDao {
             throw new IllegalArgumentException("The id entered does not exist");
 
         String newFirearmType = toEdit.getFirearmType();
+        String newFiearmTypeDescription = toEdit.getFirearmTypeDescription();
         FirearmType original = getFirearmTypeById(id);
 
         if(newFirearmType!=null){
             template.update("UPDATE \"FirearmType\" SET \"firearmtypenmae\" = '" + newFirearmType + "' WHERE \"firearmtypeid\" = '" + id + "';");
             original.setFirearmType(newFirearmType);
+        }
+        if(newFiearmTypeDescription!=null){
+            template.update("UPDATE \"FirearmType\" SET \"firearmtypedescription\" = '" + newFiearmTypeDescription + "' WHERE \"firearmtypeid\" = '" + id + "';");
+            original.setFirearmTypeDescription(newFiearmTypeDescription);
         }
     }
 

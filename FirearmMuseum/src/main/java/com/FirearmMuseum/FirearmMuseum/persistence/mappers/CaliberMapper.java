@@ -14,6 +14,7 @@ public class CaliberMapper implements RowMapper<Caliber> {
         mappedCaliber.setCaliberId(resultSet.getInt("caliberid"));
         mappedCaliber.setCaliberUnit(resultSet.getString("caliberunit"));
         mappedCaliber.setCaliberSize(resultSet.getDouble("calibersize"));
+        mappedCaliber.setCaliberDescription(resultSet.getString("caliberdescription"));
 
         return mappedCaliber;
 

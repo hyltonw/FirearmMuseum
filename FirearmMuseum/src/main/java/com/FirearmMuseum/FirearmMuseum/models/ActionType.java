@@ -4,6 +4,7 @@ public class ActionType {
 
     private Integer actionTypeId;
     private String actionType;
+    private String actionTypeDescription;
 
     public ActionType(){
 
@@ -35,4 +36,11 @@ public class ActionType {
         this.actionType = actionType;
     }
 
+    public String getActionTypeDescription() {
+        return actionTypeDescription;
+    }
+
+    public void setActionTypeDescription(String actionTypeDescription) {
+        this.actionTypeDescription = actionTypeDescription;
+    }
 }

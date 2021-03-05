@@ -4,6 +4,7 @@ public class FirearmType {
 
     private Integer firearmTypeId;
     private String firearmType;
+    private String firearmTypeDescription;
 
     public FirearmType(){
 
@@ -33,5 +34,13 @@ public class FirearmType {
 
     public void setFirearmType(String firearmType) {
         this.firearmType = firearmType;
+    }
+
+    public String getFirearmTypeDescription() {
+        return firearmTypeDescription;
+    }
+
+    public void setFirearmTypeDescription(String firearmTypeDescription) {
+        this.firearmTypeDescription = firearmTypeDescription;
     }
 }

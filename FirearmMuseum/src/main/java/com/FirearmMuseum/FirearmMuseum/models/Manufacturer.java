@@ -4,6 +4,7 @@ public class Manufacturer {
 
     private Integer manufacturerId;
     private String manufacturer;
+    private String manufacturerDescription;
 
     public Manufacturer(){
 
@@ -33,5 +34,13 @@ public class Manufacturer {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public String getManufacturerDescription() {
+        return manufacturerDescription;
+    }
+
+    public void setManufacturerDescription(String manufacturerDescription) {
+        this.manufacturerDescription = manufacturerDescription;
     }
 }

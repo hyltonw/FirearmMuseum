@@ -34,10 +34,11 @@ public class PostgresManufacturerDao implements ManufacturerDao {
             throw new IllegalArgumentException("the entered manufacturer was null");
 
         try{
-            Integer ManufacturerId = template.queryForObject("INSERT INTO \"Manufacturer\" (\"manufacturername\")" +
+            Integer ManufacturerId = template.queryForObject("INSERT INTO \"Manufacturer\" (\"manufacturername\", \"manufacturerdescription\")" +
                             "VALUES (?) RETURNING \"manufacturersid\";",
                     new ManufacturerIdMapper(),
-                    toAdd.getManufacturer());
+                    toAdd.getManufacturer(),
+                    toAdd.getManufacturerDescription());
                     toAdd.setManufacturerId( ManufacturerId );
 
         } catch (DataIntegrityViolationException e){
@@ -75,12 +76,17 @@ public class PostgresManufacturerDao implements ManufacturerDao {
         if (!idExists)
             throw new IllegalArgumentException("The id entered does not exist");
 
-        String newActionType = toEdit.getManufacturer();
+        String newManufacturer = toEdit.getManufacturer();
+        String newManufacturerDescription = toEdit.getManufacturerDescription();
         Manufacturer original = getManufacturerById(id);
 
-        if (newActionType != null) {
-            template.update("UPDATE \"Manufacturer\" SET \"manufacturername\" = '" + newActionType + "' WHERE \"manufacturersid\" = '" + id + "';");
-            original.setManufacturer(newActionType);
+        if (newManufacturer != null) {
+            template.update("UPDATE \"Manufacturer\" SET \"manufacturername\" = '" + newManufacturer + "' WHERE \"manufacturersid\" = '" + id + "';");
+            original.setManufacturer(newManufacturer);
+        }
+        if (newManufacturerDescription!=null) {
+            template.update("UPDATE \"Manufacturer\" SET \"manufacturerdescription\" = '" + newManufacturerDescription + "' WHERE \"manufacturersid\" = '" + id + "';");
+            original.setManufacturerDescription(newManufacturerDescription);
         }
     }
 

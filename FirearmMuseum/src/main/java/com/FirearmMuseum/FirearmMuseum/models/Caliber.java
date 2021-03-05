@@ -5,6 +5,7 @@ public class Caliber {
     private Integer caliberId;
     private Double caliberSize;
     private String caliberUnit;
+    private String caliberDescription;
 
 
     public Caliber(){
@@ -45,5 +46,13 @@ public class Caliber {
 
     public void setCaliberUnit(String caliberUnit) {
         this.caliberUnit = caliberUnit;
+    }
+
+    public String getCaliberDescription() {
+        return caliberDescription;
+    }
+
+    public void setCaliberDescription(String caliberDescription) {
+        this.caliberDescription = caliberDescription;
     }
 }
