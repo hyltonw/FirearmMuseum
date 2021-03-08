@@ -14,10 +14,10 @@ a{
 .routing{
     width: 20%;
     height: 25px;
-    background-color: gold;
+    background-color:peru;
     display: inline-block;
     text-align: center;
-    outline-color: goldenrod;
+    outline-color: white;
     outline-width: 5px;
     outline-style: solid;
     position: relative;
@@ -25,10 +25,10 @@ a{
 
 .infoCard{
     position: relative;
-    background-color: gold;
+    background-color:peru;
     outline-width: 10px;
     outline-style: solid;
-    outline-color: goldenrod;
+    outline-color: peru;
     margin-top: 50px;
     margin-left: 5%;
     display: inline-block;
@@ -74,7 +74,7 @@ a{
     border-width: 10px;
 }
 
-.manuPic{
+.picContainer{
     height: 80%;
     width: 95%;
     display: inline-block;

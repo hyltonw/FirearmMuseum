@@ -9,10 +9,13 @@ import { Manufacturer } from 'src/app/models/manufacturer';
 export class ManufacturerComponent implements OnInit {
 
   @Input() manufacturer : Manufacturer;
+  @Input() name : string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.name = this.manufacturer.manufacturer.replace(/\s/g,"").toLowerCase();
+
     console.log(this.manufacturer)
   }
 
