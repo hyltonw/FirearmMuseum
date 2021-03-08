@@ -94,7 +94,7 @@ public class PostgresActionTypeDao implements ActionTypeDao {
 
         if(idEXists) {
             template.update("DELETE FROM \"ActionType\"" +
-                    "WHERE \"Actiontype\".actiontypeid = '" + id + "';");
+                    "WHERE \"ActionType\".actiontypeid = '" + id + "';");
         } else
             throw new IllegalArgumentException("The action type with that id doesn't exist");
     }
