@@ -87,7 +87,7 @@ public class PostgresCaliberDao implements CaliberDao {
             throw new IllegalArgumentException("The id entered does not exist");
 
         String newCaliberUnit = toEdit.getCaliberUnit();
-        Double newCaliberSize = toEdit.getCaliberSize();
+        String newCaliberSize = toEdit.getCaliberSize();
         String newCaliberDescription = toEdit.getCaliberDescription();
         Caliber original = getCaliberById(id);
 

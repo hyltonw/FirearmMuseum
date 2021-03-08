@@ -3,7 +3,7 @@ package com.FirearmMuseum.FirearmMuseum.models;
 public class Caliber {
 
     private Integer caliberId;
-    private Double caliberSize;
+    private String caliberSize;
     private String caliberUnit;
     private String caliberDescription;
 
@@ -12,7 +12,7 @@ public class Caliber {
 
     }
 
-    public Caliber(Integer caliberId, Double caliberSize, String caliberUnit){
+    public Caliber(Integer caliberId, String caliberSize, String caliberUnit){
         this.caliberId = caliberId;
         this.caliberSize = caliberSize;
         this.caliberUnit = caliberUnit;
@@ -32,11 +32,11 @@ public class Caliber {
         this.caliberId = caliberId;
     }
 
-    public Double getCaliberSize() {
+    public String getCaliberSize() {
         return caliberSize;
     }
 
-    public void setCaliberSize(Double caliberSize) {
+    public void setCaliberSize(String caliberSize) {
         this.caliberSize = caliberSize;
     }
 
