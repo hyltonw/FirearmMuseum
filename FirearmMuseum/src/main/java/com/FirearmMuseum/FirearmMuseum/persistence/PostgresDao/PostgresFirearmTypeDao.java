@@ -29,8 +29,6 @@ public class PostgresFirearmTypeDao implements FirearmTypeDao {
     public FirearmType addFirearmType(FirearmType toAdd) throws InvalidObjectException {
         if(toAdd==null)
             throw new InvalidObjectException("The entered firearm type was null");
-        if(toAdd.getFirearmTypeId()==null)
-            throw new IllegalArgumentException("the entered firearm type Id was null");
         if(toAdd.getFirearmType()==null)
             throw new IllegalArgumentException("the entered firearm type was null");
 
