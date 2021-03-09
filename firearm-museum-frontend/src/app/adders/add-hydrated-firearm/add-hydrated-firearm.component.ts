@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MuseumService } from 'src/app/museum.service';
 
 @Component({
   selector: 'app-add-hydrated-firearm',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddHydratedFirearmComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : MuseumService) { }
 
   ngOnInit(): void {
+  }
+
+  addHydratedFirearm(){
+    
   }
 
 }

@@ -1,1 +1,32 @@
-<p>add-hydrated-firearm works!</p>
+<!-- <div class="infoCard">
+    <div class="information">
+        <div class="infoContainer">
+            <select  [(ngModel)]="hydratedFirearm.manufacturer">
+                <option [value]="hydratedFirearm.manufacturer">{{hydratedFirearm.manufacturer.manufacturer}}</option>
+                <option *ngFor="let m of manufacturers" [ngValue]="m.manufacturer">{{m.manufacturer}}</option>
+            </select>
+
+            <textarea [(ngModel)]="hydratedFirearm.name" style="display: inline; background-color: white; border-width: 0px; resize: none; text-align: left;" rows="1" cols="20">{{hydratedFirearm.name}}</textarea>
+            <select  [(ngModel)]="hydratedFirearm.caliber">
+                <option [value]="hydratedFirearm.caliber">{{hydratedFirearm.caliber.caliberSize}} {{hydratedFirearm.caliber.caliberUnit}}</option>
+                <option *ngFor="let c of calibers" [ngValue]="c.caliberSize">{{c.caliberSize}} {{c.caliberUnit}}</option>
+            </select>
+            
+            <select  [(ngModel)]="hydratedFirearm.actionType">
+                <option [value]="hydratedFirearm.actionType">{{hydratedFirearm.actionType.actionType}}</option>
+                <option *ngFor="let at of actionTypes" [ngValue]="at.actionType">{{at.actionType}}</option>
+            </select>
+
+            <select  [(ngModel)]="hydratedFirearm.firearmType">
+                <option [value]="hydratedFirearm.firearmType">{{hydratedFirearm.firearmType.firearmType}}</option>
+                <option *ngFor="let ft of firearmTypes" [ngValue]="ft.firearmType">{{ft.firearmType}}</option>
+            </select>
+            
+            <span  style="display: inline;">Manufactured in </span>
+            <textarea [(ngModel)]="hydratedFirearm.productionDate" style="display: inline; background-color: white; border-width: 0px; resize: none; text-align: left;" rows="1" cols="3">{{hydratedFirearm.productionDate}}</textarea>
+        </div>  
+    </div>
+    <div class="description">
+        <textarea  style="background-color: white;" rows="10" cols="100" #descriptionId placeholder="description"></textarea>
+    </div>
+</div> -->

@@ -16,8 +16,6 @@ export class HydratedFirearmContainerComponent implements OnInit {
   ngOnInit(): void {
     this.hydrateFirearmService.getAllHydratedFirearms().subscribe( list => {
       this.hydratedFirearms = list
-      console.log("first firearm in list "+this.hydratedFirearms[0])
-
     })
   }
 

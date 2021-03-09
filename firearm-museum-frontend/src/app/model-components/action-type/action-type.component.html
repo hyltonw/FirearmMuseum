@@ -2,13 +2,14 @@
     <div class="information">
         <img class="picContainer" src="../../../assets/Actions/{{name}}.jpg">
         <div class="infoContainer">
-            <span>{{ActionType.actionType}}
-            </span>
+            <textarea [readonly]="editing" [(ngModel)]="ActionType.actionType" style="display: inline; background-color: peru; border-width: 0px; resize: none; text-align: center;" rows="1" cols="53">{{ActionType.actionType}}</textarea>
         </div>  
     </div>
     <div class="description">
-        <span style="display: inline-block;">
-        {{ActionType.actionTypeDescription}}    
-        </span>
+        <textarea [readonly]="editing" [(ngModel)]="ActionType.actionTypeDescription" style="display: block; background-color: peru; border-width: 0px; resize: none;" rows="10" cols="100">
+        </textarea>
     </div>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editActionType()">submit</button>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeActionType()">Delete</button>
+    <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()">edit</button>
 </div>

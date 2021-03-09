@@ -3,10 +3,11 @@
         <div class="infoContainer">
             <input #sizeId type="text" placeholder="size">
             <input #unitId type="text" placeholder="units">
-            <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value)">Submit</button>
+            <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button>
+            <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
         </div>  
     </div>
     <div class="description">
-        <textarea #descriptionId placeholder="description"></textarea>
+        <textarea style="background-color: white;" rows="10" cols="100" #descriptionId placeholder="description"></textarea>
     </div>
 </div>

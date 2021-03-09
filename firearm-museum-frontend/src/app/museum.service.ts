@@ -153,6 +153,62 @@ export class MuseumService {
     )
   }
 
+  editActionType(toEdit : ActionType, id : number) : Observable<ActionType>{
+    return this.http.post<ActionType>(this.baseURL+"/actiontype/edit/"+id, toEdit)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  removeActionType(id : number) : Observable<ActionType>{
+    return this.http.delete<ActionType>(this.baseURL+"/actiontype/remove/"+id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  addHydratedFirearm(toAdd : HydratedFirearm) : Observable<HydratedFirearm>{
+    return this.http.post<HydratedFirearm>(this.baseURL+"/hydratedfirearm/add",toAdd)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  editFirearm(toEdit : Firearm, id : number):Observable<string>{
+    console.log(toEdit);
+    return this.http.post<string>(this.baseURL+"/firearm/edit/"+id, toEdit)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  removeFirearm(id : number){
+    return this.http.delete<Firearm>(this.baseURL+"/firearm/remove/"+id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
   addManufacturer(toAdd : Manufacturer) : Observable<Manufacturer>{
     console.log(this.baseURL+"/manufacturer/add");
     return this.http.post<Manufacturer>(this.baseURL+"/manufacturer/add", toAdd)

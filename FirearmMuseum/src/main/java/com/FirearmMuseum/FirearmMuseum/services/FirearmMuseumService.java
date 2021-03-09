@@ -54,6 +54,8 @@ public class FirearmMuseumService {
         return toReturn;
     }
 
+
+
     public List<Firearm> getAllFirearms(){
         return firearmDao.getAllFirearms();
     }

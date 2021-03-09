@@ -2,10 +2,11 @@
     <div class="information">
         <div class="infoContainer">
             <input #nameId type="text" placeholder="action name">
-            <button (click)="addActionType(nameId.value,descriptionId.value)">Submit</button>
+            <button (click)="addActionType(nameId.value,descriptionId.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/actiontype">Submit</button>
+            <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/actiontype">Cancel</button>
         </div>  
     </div>
     <div class="description">
-        <textarea #descriptionId placeholder="description"></textarea>
+        <textarea id="inputDescription" style="background-color: white;" #descriptionId placeholder="description" rows="10" cols="100"></textarea>
     </div>
 </div>

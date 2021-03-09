@@ -17,7 +17,6 @@ export class FirearmContainerComponent implements OnInit {
     this.firearmService.getAllFirearms().subscribe(list => {
       this.firearms = list
     })
-    console.log(this.firearms)
   }
 
 }

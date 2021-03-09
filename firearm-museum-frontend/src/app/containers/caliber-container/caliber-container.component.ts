@@ -17,7 +17,6 @@ export class CaliberContainerComponent implements OnInit {
     this.caliberservice.getAllCalibers().subscribe(list => {
       this.calibers = list
     })
-    console.log(this.calibers)
   }
 
 }

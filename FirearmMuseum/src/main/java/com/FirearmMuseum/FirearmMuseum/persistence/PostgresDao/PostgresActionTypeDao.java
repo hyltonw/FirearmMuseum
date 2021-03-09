@@ -75,7 +75,7 @@ public class PostgresActionTypeDao implements ActionTypeDao {
             original.setActionType(newActionType);
         }
         if(newActionTypeDescription!=null){
-            template.update("UPDATE \"ActionType\" SET \"actiontypedescription\" = " + newActionTypeDescription + "' WHERE \"actiontypeid\" = '"+id+"';");
+            template.update("UPDATE \"ActionType\" SET \"actiontypedescription\" = '" + newActionTypeDescription + "' WHERE \"actiontypeid\" = '"+id+"';");
             original.setActionTypeDescription(newActionTypeDescription);
         }
 

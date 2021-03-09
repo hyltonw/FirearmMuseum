@@ -10,12 +10,13 @@ import { MuseumService } from 'src/app/museum.service';
 export class ManufacturerContainerComponent implements OnInit {
 
   @Input() manufacturers : Manufacturer[];
+
   constructor(private manufacturerservice : MuseumService) { }
 
   ngOnInit(): void { 
     this.manufacturerservice.getAllManufacturers().subscribe( list => {
+      list.sort((a,b) => (a.manufacturer > b.manufacturer ? 1 : -1 ));
       this.manufacturers = list;
-      console.log(this.manufacturers[0])
     })
   }
 

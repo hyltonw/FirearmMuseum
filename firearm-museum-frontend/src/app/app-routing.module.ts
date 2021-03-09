@@ -17,6 +17,7 @@ import { AddCaliberComponent } from './adders/add-caliber/add-caliber.component'
 import { AddActionTypeComponent } from './adders/add-action-type/add-action-type.component';
 import { EditManufacturerComponent } from './editors/edit-manufacturer/edit-manufacturer.component';
 import { CaliberComponent } from './model-components/caliber/caliber.component';
+import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-hydrated-firearm.component';
 
 const routes: Routes = [{path: "", component: HomepageComponent},
                         {path: "firearm/add", component: AddFirearmComponent},
@@ -35,7 +36,10 @@ const routes: Routes = [{path: "", component: HomepageComponent},
                         {path: "caliber/edit/:id", component: CaliberComponent},
                         {path: "caliber/remove/:id", component: CaliberComponent},
                         {path: "actiontype/edit/:id", component: ActionTypeComponent},
-                        {path: "actiontype/remove/:id", component: ActionTypeComponent}];
+                        {path: "actiontype/remove/:id", component: ActionTypeComponent},
+                        {path: "hydratedfirearm/add", component: AddHydratedFirearmComponent},
+                        {path: "firearm/edit/:id", component: HydratedFirearmComponent},
+                        {path: "firearm/remove/:id", component: HydratedFirearmComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

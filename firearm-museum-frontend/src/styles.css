@@ -29,7 +29,7 @@ a{
     margin-left: 5%;
     display: inline-block;
     width: 90%;
-    height: 400px;
+    height: 440px;
     overflow: hidden;
 }
 
@@ -83,6 +83,7 @@ a{
     height: 15%;
     width: 100%;
     display: inline-block;
+    align-content: center;
 }
 
 img{
@@ -99,11 +100,10 @@ img{
     height: 100%;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
+textarea{
+    display: block;
+    background-color: peru;
+    border-width: 0px;
+    resize: none;
 }
 
-.dropdown:hover .routing-content {
-    display: block;
-}
