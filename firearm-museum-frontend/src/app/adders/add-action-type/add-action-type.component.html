@@ -1,0 +1,11 @@
+<div class="infoCard">
+    <div class="information">
+        <div class="infoContainer">
+            <input #nameId type="text" placeholder="action name">
+            <button (click)="addActionType(nameId.value,descriptionId.value)">Submit</button>
+        </div>  
+    </div>
+    <div class="description">
+        <textarea #descriptionId placeholder="description"></textarea>
+    </div>
+</div>
