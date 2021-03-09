@@ -1,16 +1,5 @@
-<body>
-    <img src="../../../assets/testheader2.jpg" class="headerimg">
-    <div class="banner">
-        <a [routerLink]="['/hydratedfirearm']" ><div class ="routing">firearms</div> </a> 
-        <a [routerLink]="['/caliber']" ><div class ="routing">calibers</div></a>
-        <a [routerLink]="['/actiontype']" ><div class ="routing">actions</div></a>
-        <a [routerLink]="['/manufacturer']" ><div class ="routing">manufacturers</div></a>
-        <a [routerLink]="['/add']" ><div class ="routing">contribute</div></a>
-    </div>
-    <div class="pageBody">
-        <app-firearm id="firearm" *ngFor="let firearm of firearms" [firearm]="firearm"> </app-firearm>
-    </div>
-</body>
-<footer>
 
-</footer>
+<div class="pageBody">
+    <app-firearm id="firearm" *ngFor="let firearm of firearms" [firearm]="firearm"> </app-firearm>
+</div>
+

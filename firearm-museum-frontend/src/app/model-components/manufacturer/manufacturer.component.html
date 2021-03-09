@@ -2,15 +2,15 @@
     <div class="information">
         <img class="picContainer" src="../../../assets/{{name}}/logo.jpg">
         <div class="infoContainer">
-            <span>{{manufacturer.manufacturer}}
-            </span>
+            <textarea [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; background-color: peru; border-width: 0px; resize: none; text-align: center;" rows="1" cols="53">{{manufacturer.manufacturer}}
+            </textarea>
         </div>  
     </div>
     <div class="description">
-        <span style="display: inline-block;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad nobis facilis, ab ut dolorem sapiente vitae, accusamus ex, necessitatibus quidem exercitationem tempora ipsa in dolor recusandae nihil ullam blanditiis harum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam adipisci ipsam iste deserunt, amet labore voluptates ducimus fugit enim atque animi quod recusandae odit error beatae possimus officia. Placeat, vero!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-        </span>
+        <textarea [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: peru; border-width: 0px; resize: none;" rows="10" cols="100">
+        </textarea>
     </div>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editManufacturer()">submit</button>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeManufacturer()">Delete</button>
+    <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()" >edit</button>
 </div>

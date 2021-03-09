@@ -10,6 +10,7 @@ import { ActionType } from './models/action-type';
 import { FirearmType } from './models/firearm-type';
 import { FirearmTypeComponent } from './model-components/firearm-type/firearm-type.component';
 import { Manufacturer } from './models/manufacturer';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Injectable({
   providedIn: 'root'
@@ -97,6 +98,86 @@ export class MuseumService {
   
   addFirearm(toAdd : Firearm) : Observable<Firearm>{
     return this.http.post<Firearm>(this.baseURL+"/firearm/add", toAdd, this.httpOptions)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  addCaliber(toAdd : Caliber) : Observable<Caliber>{
+    console.log(this.baseURL+"/caliber/add");
+    return this.http.post<Caliber>(this.baseURL+"/caliber/add", toAdd)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );
+  }
+
+  editCaliber(toEdit : Caliber, id : number) : Observable<Caliber>{
+    console.log(this.baseURL+"/caliber/edit/"+id,toEdit);
+    return this.http.post<Caliber>(this.baseURL+"/caliber/edit/"+id,toEdit)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  removeCaliber(id : number) : Observable<Caliber>{
+    return this.http.delete<Caliber>(this.baseURL+"/caliber/remove/"+id)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  addActionType(toAdd : ActionType) : Observable<ActionType>{
+    return this.http.post<ActionType>(this.baseURL+"/actiontype/add", toAdd)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  addManufacturer(toAdd : Manufacturer) : Observable<Manufacturer>{
+    console.log(this.baseURL+"/manufacturer/add");
+    return this.http.post<Manufacturer>(this.baseURL+"/manufacturer/add", toAdd)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    );
+  }
+
+  editManufacturer(toEdit : Manufacturer, id : number) : Observable<Manufacturer>{
+    return this.http.post<Manufacturer>(this.baseURL+"/manufacturer/edit/"+id, toEdit)
+    .pipe(
+      tap(x => console.log(x)),
+      catchError(err => {
+        console.log(err);
+        return of(null);
+      })
+    )
+  }
+
+  removeManufacturer(id : number) : Observable<Manufacturer>{
+    return this.http.delete<Manufacturer>(this.baseURL+"/manufacturer/remove/"+id)
     .pipe(
       tap(x => console.log(x)),
       catchError(err => {

@@ -23,8 +23,6 @@ export class HydratedFirearmComponent implements OnInit {
     
       //gets rid of spaces in manufacturer name and then capitlizes first letter
     this.manufacturerName = this.hydratedFirearm.manufacturer.manufacturer.replace(/\s/g,"").toLowerCase();
-    this.manufacturerName = this.manufacturerName.charAt(0).toUpperCase() + this.manufacturerName.slice(1);
-
     if(this.hydratedFirearm.firearmType.firearmType.toLowerCase()=="pistol" || this.hydratedFirearm.firearmType.firearmType.toLowerCase()=="revolver" ){
       this.containerPicker = "shortgun";
     } else {

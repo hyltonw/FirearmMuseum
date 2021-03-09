@@ -1,12 +1,11 @@
-<body>
-    <div class="banner">
-        <a [routerLink]="['/hydratedfirearm']" ><div class ="routing">firearms</div> </a> 
-        <a [routerLink]="['/caliber']" ><div class ="routing">calibers</div></a>
-        <a [routerLink]="['/actiontype']" ><div class ="routing">actions</div></a>
-        <a [routerLink]="['/manufacturer']" ><div class ="routing">manufacturers</div></a>
-        <a [routerLink]="['/add']" ><div class ="routing">contribute</div></a>
-    </div>
-    <div class="pageBody">
+<select (change)="addPicker($event)">
+    <option value="firearm">Firearm</option>
+    <option value="actionType">Action type</option>
+    <option value="caliber">Caliber</option>
+    <option value="firearmType">Firearm Classification</option>
+    <option value="manufacturer">Manufacturer</option>
+</select>
 
-    </div>
-</body>
+
+<app-add-firearm *ngIf="pickedAdd === 'firearm'"></app-add-firearm>
+

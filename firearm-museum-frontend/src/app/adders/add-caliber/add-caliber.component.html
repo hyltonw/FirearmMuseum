@@ -1,1 +1,12 @@
-<p>add-caliber works!</p>
+<div class="infoCard">
+    <div class="information">
+        <div class="infoContainer">
+            <input #sizeId type="text" placeholder="size">
+            <input #unitId type="text" placeholder="units">
+            <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value)">Submit</button>
+        </div>  
+    </div>
+    <div class="description">
+        <textarea #descriptionId placeholder="description"></textarea>
+    </div>
+</div>

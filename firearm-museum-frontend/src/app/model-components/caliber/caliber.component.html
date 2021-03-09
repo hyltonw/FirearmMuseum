@@ -1,23 +1,16 @@
 <div class="infoCard">
     <div class="information">
-        <img class="manuPic" src="../../../assets/Calibers/{{caliber.caliberSize}}{{caliber.caliberUnit}}.jpg">
+        <img class="picContainer" src="../../../assets/Calibers/{{name}}.jpg">
         <div class="infoContainer">
-            <span>{{caliber.caliberSize}}{{caliber.caliberUnit}}
-            </span>
+            <textarea [readonly]="editing" [(ngModel)]="caliber.caliberSize" style="display: inline; background-color: peru; border-width: 0px; resize: none; text-align: right;" rows="1" cols="5">{{caliber.caliberSize}}</textarea>
+            <textarea [readonly]="editing" [(ngModel)]="caliber.caliberUnit" style="display: inline; background-color: peru; border-width: 0px; resize: none; text-align: left;" rows="1" cols="20">{{caliber.caliberUnit}}</textarea>
         </div>  
     </div>
     <div class="description">
-        <span style="display: inline-block;">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad nobis facilis, ab ut dolorem sapiente vitae, accusamus ex, necessitatibus quidem exercitationem tempora ipsa in dolor recusandae nihil ullam blanditiis harum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam adipisci ipsam iste deserunt, amet labore voluptates ducimus fugit enim atque animi quod recusandae odit error beatae possimus officia. Placeat, vero!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, nemo saepe. Non voluptatem hic magnam quasi porro laborum vel illo, minus, soluta id vero esse eligendi. Vero dolor exercitationem adipisci.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad nobis facilis, ab ut dolorem sapiente vitae, accusamus ex, necessitatibus quidem exercitationem tempora ipsa in dolor recusandae nihil ullam blanditiis harum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam adipisci ipsam iste deserunt, amet labore voluptates ducimus fugit enim atque animi quod recusandae odit error beatae possimus officia. Placeat, vero!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-        </span>
+        <textarea [readonly]="editing" [(ngModel)]="caliber.caliberDescription" style="display: block; background-color: peru; border-width: 0px; resize: none;" rows="10" cols="100">
+        </textarea>
     </div>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editCaliber()">submit</button>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeCaliber()">Delete</button>
+    <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()">edit</button>
 </div>

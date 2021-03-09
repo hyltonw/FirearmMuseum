@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddFirearmComponent } from './adders/add-firearm/add-firearm.component';
 import { CaliberContainerComponent } from './containers/caliber-container/caliber-container.component';
@@ -12,6 +12,11 @@ import { FirearmTypeContainerComponent } from './containers/firearm-type-contain
 import { ManufacturerComponent } from './model-components/manufacturer/manufacturer.component';
 import { ManufacturerContainerComponent } from './containers/manufacturer-container/manufacturer-container.component';
 import { AddpageComponent } from './views/addpage/addpage.component';
+import { AddManufacturerComponent } from './adders/add-manufacturer/add-manufacturer.component';
+import { AddCaliberComponent } from './adders/add-caliber/add-caliber.component';
+import { AddActionTypeComponent } from './adders/add-action-type/add-action-type.component';
+import { EditManufacturerComponent } from './editors/edit-manufacturer/edit-manufacturer.component';
+import { CaliberComponent } from './model-components/caliber/caliber.component';
 
 const routes: Routes = [{path: "", component: HomepageComponent},
                         {path: "firearm/add", component: AddFirearmComponent},
@@ -21,7 +26,16 @@ const routes: Routes = [{path: "", component: HomepageComponent},
                         {path: "actiontype", component: ActionTypeContainerComponent},
                         {path: "firearmtype", component: FirearmTypeContainerComponent},
                         {path: "manufacturer", component: ManufacturerContainerComponent},
-                        {path : "add", component: AddpageComponent}];
+                        {path: "add", component: AddpageComponent},
+                        {path: "manufacturer/add" , component: AddManufacturerComponent},
+                        {path: "caliber/add" , component : AddCaliberComponent},
+                        {path: "actiontype/add", component : AddActionTypeComponent},
+                        {path: "manufacturer/edit/:id", component: ManufacturerComponent},
+                        {path: "manufacturer/remove/:id", component: ManufacturerComponent},
+                        {path: "caliber/edit/:id", component: CaliberComponent},
+                        {path: "caliber/remove/:id", component: CaliberComponent},
+                        {path: "actiontype/edit/:id", component: ActionTypeComponent},
+                        {path: "actiontype/remove/:id", component: ActionTypeComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
