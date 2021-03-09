@@ -32,8 +32,6 @@ public class PostgresCaliberDao implements CaliberDao {
 
         if(toAdd==null)
             throw new InvalidObjectException("The entered caliber was null");
-        if(toAdd.getCaliberId()==null)
-            throw new IllegalArgumentException("the entered caliber Id was null");
         if(toAdd.getCaliberSize()==null)
             throw new IllegalArgumentException("the entered caliber size was null");
         if(toAdd.getCaliberUnit()==null)
@@ -41,7 +39,8 @@ public class PostgresCaliberDao implements CaliberDao {
 
 
         try{
-            Integer caliberId = template.queryForObject("INSERT INTO \"Caliber\" (\"calibersize\",\"caliberunit\",\"caliberdescription\")" +
+            Integer caliberId = template.queryForObject("INSERT INTO \"Caliber\" " +
+                            "(\"calibersize\",\"caliberunit\",\"caliberdescription\")" +
                     "VALUES (?,?,?) RETURNING \"caliberid\";",
                     new CaliberIdMapper(),
                     toAdd.getCaliberSize(),

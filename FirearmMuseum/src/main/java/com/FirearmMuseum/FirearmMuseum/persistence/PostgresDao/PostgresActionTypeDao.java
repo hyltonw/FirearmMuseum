@@ -32,8 +32,6 @@ public class PostgresActionTypeDao implements ActionTypeDao {
     public ActionType addActionType(ActionType toAdd) throws InvalidObjectException {
         if(toAdd==null)
             throw new InvalidObjectException("The entered action type was null");
-        if(toAdd.getActionTypeId()==null)
-            throw new IllegalArgumentException("the entered action type Id was null");
         if(toAdd.getActionType()==null)
             throw new IllegalArgumentException("the entered action type was null");
 

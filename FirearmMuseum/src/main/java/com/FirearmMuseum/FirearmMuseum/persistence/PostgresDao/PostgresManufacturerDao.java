@@ -28,14 +28,13 @@ public class PostgresManufacturerDao implements ManufacturerDao {
     public Manufacturer addManufacturer(Manufacturer toAdd) throws InvalidObjectException {
         if(toAdd==null)
             throw new InvalidObjectException("The entered manufacturer was null");
-        if(toAdd.getManufacturerId()==null)
-            throw new IllegalArgumentException("the entered manufacturer Id was null");
         if(toAdd.getManufacturer()==null)
             throw new IllegalArgumentException("the entered manufacturer was null");
 
         try{
-            Integer ManufacturerId = template.queryForObject("INSERT INTO \"Manufacturer\" (\"manufacturername\", \"manufacturerdescription\")" +
-                            "VALUES (?) RETURNING \"manufacturersid\";",
+            Integer ManufacturerId = template.queryForObject("INSERT INTO \"Manufacturer\" " +
+                            "(\"manufacturername\", \"manufacturerdescription\")" +
+                            "VALUES (?,?) RETURNING \"manufacturersid\";",
                     new ManufacturerIdMapper(),
                     toAdd.getManufacturer(),
                     toAdd.getManufacturerDescription());

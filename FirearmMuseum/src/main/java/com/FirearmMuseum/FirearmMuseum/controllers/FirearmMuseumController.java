@@ -140,7 +140,7 @@ public class FirearmMuseumController {
     public ResponseEntity addCaliber(@RequestBody Caliber toAdd) throws InvalidObjectException {
         Caliber completed = service.addCaliber(toAdd);
 
-        return ResponseEntity.ok(toAdd);
+        return ResponseEntity.ok(completed);
     }
 
     @DeleteMapping("/caliber/remove/{id}")
@@ -218,10 +218,16 @@ public class FirearmMuseumController {
 
     @PostMapping("/manufacturer/add")
     public ResponseEntity addManufacturer(@RequestBody Manufacturer toAdd) throws InvalidObjectException {
+
+        int x = 5;
         Manufacturer completed = service.addManufacturer(toAdd);
 
-        return ResponseEntity.ok(toAdd);
+
+
+        return ResponseEntity.ok(completed);
     }
+
+
 
     @DeleteMapping("/manufacturer/remove/{id}")
     public String removeManufacturer(@PathVariable Integer id) {
