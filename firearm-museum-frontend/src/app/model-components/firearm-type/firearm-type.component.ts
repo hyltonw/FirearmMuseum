@@ -13,7 +13,6 @@ export class FirearmTypeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.firearmType)
   }
 
 }

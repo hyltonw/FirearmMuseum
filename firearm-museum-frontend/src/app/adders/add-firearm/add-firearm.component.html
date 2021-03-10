@@ -1,25 +1,45 @@
 <div class="infoCard">
     <div class="information">
-        <input type="image" style="height: 100px;">
         <div class="infoContainer">
-            <input type="text" placeholder="manufacturer">
-            <input type="text" placeholder="name">
+            <select #newManufacturer style="background-color: rgba(255, 255, 255, 0.342);">
+                <option [value]="mToAdd"><option>
+                <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.manufacturer}}</option>
+            </select>
+
+            <input [readonly]="false" #newName style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: left;" placeholder="name">
+
+            <select #newCaliber style="background-color: rgba(255, 255, 255, 0.342)">
+                <option [value]="cToAdd"></option>
+                <option *ngFor="let c of calibers" [ngValue]="c">{{c.caliberSize}} {{c.caliberUnit}}</option>
+            </select>
+            
+            <select  #newActionType style="background-color: rgba(255, 255, 255, 0.342)">
+                <option [value]="atToAdd"></option>
+                <option *ngFor="let at of actionTypes" [ngValue]="at">{{at.actionType}}</option>
+            </select>
+
+            <select  #newFirearmType style="background-color: rgba(255, 255, 255, 0.342);">
+                <option [value]="ftToAdd"></option>
+                <option *ngFor="let ft of firearmTypes" [ngValue]="ft">{{ft.firearmType}}</option>
+            </select>
+            
+            <span style="display: inline;">Manufactured in </span>
+            <input [readonly]="false" #newProductionDate style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="year">
+            <input [readonly]="false" #newDonatedBy style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="donated">
+            <input [readonly]="false" #newSerialNumber style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="serial number">
+
+            
+            <!-- <button (click)="addFirearm(newName.value,newCaliber.value,newManufacturer.value,newActionType.value,newFirearmType.value,newProductionDate.value,newSerialNumber.value,newDescription.value,newDonatedBy.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button> -->
+            
+            <button (click)="logList()" style="position: absolute; left: 0; bottom: 0;">Submit</button>
+
+
+            <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
+
         </div>  
     </div>
     <div class="description">
-        <span style="display: inline-block;">
-            test description
-            <br>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad nobis facilis, ab ut dolorem sapiente vitae, accusamus ex, necessitatibus quidem exercitationem tempora ipsa in dolor recusandae nihil ullam blanditiis harum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam adipisci ipsam iste deserunt, amet labore voluptates ducimus fugit enim atque animi quod recusandae odit error beatae possimus officia. Placeat, vero!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, nemo saepe. Non voluptatem hic magnam quasi porro laborum vel illo, minus, soluta id vero esse eligendi. Vero dolor exercitationem adipisci.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad nobis facilis, ab ut dolorem sapiente vitae, accusamus ex, necessitatibus quidem exercitationem tempora ipsa in dolor recusandae nihil ullam blanditiis harum?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam adipisci ipsam iste deserunt, amet labore voluptates ducimus fugit enim atque animi quod recusandae odit error beatae possimus officia. Placeat, vero!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum temporibus repellendus facere molestiae, quasi repellat nesciunt in natus exercitationem cumque eius eveniet fugiat omnis! Sequi voluptatibus tenetur voluptate omnis?
-        </span>
+        <textarea  #newDescription [readonly]="false" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="dToAdd" rows="10" cols="100">
+        </textarea>
     </div>
 </div>

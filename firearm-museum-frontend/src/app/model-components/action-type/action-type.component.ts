@@ -16,7 +16,6 @@ export class ActionTypeComponent implements OnInit {
   constructor(private service: MuseumService) { }
 
   ngOnInit(): void {
-    console.log(this.ActionType)
     this.name = this.ActionType.actionType.replace(/\s/g,"").toLowerCase();
   }
 

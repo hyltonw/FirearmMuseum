@@ -9,19 +9,20 @@
             </select>
 
             <input *ngIf="!editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.name" style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: left;" value="hydratedFirearm.name">
+
             <select *ngIf="!editing" [(ngModel)]="hydratedFirearm.caliber" style="background-color: rgba(255, 255, 255, 0.342)">
                 <option [value]="hydratedFirearm.caliber">{{hydratedFirearm.caliber.caliberSize}} {{hydratedFirearm.caliber.caliberUnit}}</option>
-                <option *ngFor="let c of calibers" [ngValue]="c.caliberSize">{{c.caliberSize}} {{c.caliberUnit}}</option>
+                <option *ngFor="let c of calibers" [ngValue]="c">{{c.caliberSize}} {{c.caliberUnit}}</option>
             </select>
             
             <select *ngIf="!editing" [(ngModel)]="hydratedFirearm.actionType" style="background-color: rgba(255, 255, 255, 0.342)">
                 <option [value]="hydratedFirearm.actionType">{{hydratedFirearm.actionType.actionType}}</option>
-                <option *ngFor="let at of actionTypes" [ngValue]="at.actionType">{{at.actionType}}</option>
+                <option *ngFor="let at of actionTypes" [ngValue]="at">{{at.actionType}}</option>
             </select>
 
             <select *ngIf="!editing" [(ngModel)]="hydratedFirearm.firearmType" style="background-color: rgba(255, 255, 255, 0.342);">
                 <option [value]="hydratedFirearm.firearmType">{{hydratedFirearm.firearmType.firearmType}}</option>
-                <option *ngFor="let ft of firearmTypes" [ngValue]="ft.firearmType">{{ft.firearmType}}</option>
+                <option *ngFor="let ft of firearmTypes" [ngValue]="ft">{{ft.firearmType}}</option>
             </select>
             
             <span *ngIf="!editing" style="display: inline;">Manufactured in </span>
@@ -39,19 +40,18 @@
             <br>
             <span *ngIf="editing" style="display: inline;">Manufactured in </span>
             <span *ngIf="editing">{{hydratedFirearm.productionDate}}</span>
-
             
         </div>  
     </div>
     <div class="description">
-        <textarea *ngIf="!editing" [readonly]="editing" style="background-color: white;"[(ngModel)]="hydratedFirearm.description" rows="10" cols="100">
+        <textarea *ngIf="!editing" [readonly]="editing" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="hydratedFirearm.description" rows="10" cols="100">
             {hydratedFirearm.description}
         </textarea>
         <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description" rows="10" cols="100">
             {hydratedFirearm.description}
         </textarea>
     </div>
-    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editHydratedFirearm()" >submit</button>
+    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editHydratedFirearm()">submit</button>
     <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeHydratedFirearm()">Delete</button>
     <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()">edit</button>
 </div>

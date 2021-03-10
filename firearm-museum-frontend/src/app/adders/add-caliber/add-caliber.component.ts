@@ -12,10 +12,9 @@ export class AddCaliberComponent implements OnInit {
   constructor(private service : MuseumService) { }
 
   ngOnInit(): void {
-    this.addCaliber("test size","test unit","test description")
   }
 
-  addCaliber(caliberSize: string,caliberUnit: string,caliberDescription: string){
+  addCaliber(caliberSize: string, caliberUnit: string, caliberDescription: string){
 
     let toAdd : Caliber = {caliberSize,caliberUnit,caliberDescription};
     return this.service.addCaliber(toAdd).subscribe(x => console.log(x));

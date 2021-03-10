@@ -16,7 +16,6 @@ export class CaliberComponent implements OnInit {
   constructor(private service : MuseumService) { }
 
   ngOnInit(): void {
-    console.log(this.caliber)
     this.name = this.caliber.caliberSize+this.caliber.caliberUnit.replace(/\s/g,"").toLowerCase();
   }
 

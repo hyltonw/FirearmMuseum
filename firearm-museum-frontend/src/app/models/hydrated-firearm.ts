@@ -4,7 +4,7 @@ import { FirearmType } from "./firearm-type";
 import { Manufacturer } from "./manufacturer";
 
 export interface HydratedFirearm{
-    firearmId : number;
+    firearmId? : number;
     name : string;
     caliber : Caliber;
     manufacturer : Manufacturer;

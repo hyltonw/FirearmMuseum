@@ -27,7 +27,6 @@ export class MuseumService {
   getAllActionTypes() : Observable<ActionType[]> {
     return this.http.get<ActionType[]>(this.baseURL+"/actiontype")
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         let empty : ActionType[] = [];
@@ -39,7 +38,6 @@ export class MuseumService {
   getAllCalibers() : Observable<Caliber[]> {
     return this.http.get<Caliber[]>(this.baseURL+"/caliber")
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         let empty : Caliber[] = [];
@@ -51,7 +49,6 @@ export class MuseumService {
   getAllFirearms() : Observable<Firearm[]> {
     return this.http.get<Firearm[]>(this.baseURL + "/firearms")
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         let empty : Firearm[] = [];
@@ -63,7 +60,6 @@ export class MuseumService {
   getAllFirearmTypes() : Observable<FirearmType[]> {
     return this.http.get<FirearmType[]>(this.baseURL + "/firearmtype",this.httpOptions)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         let empty : FirearmType[] = [];
@@ -75,7 +71,6 @@ export class MuseumService {
   getAllHydratedFirearms() : Observable<HydratedFirearm[]> {
     return this.http.get<HydratedFirearm[]>(this.baseURL + "/hydratedfirearm",this.httpOptions)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         let empty : HydratedFirearm[] = [];
@@ -87,7 +82,6 @@ export class MuseumService {
   getAllManufacturers() : Observable<Manufacturer[]> {
     return this.http.get<Manufacturer[]>(this.baseURL + "/manufacturer",this.httpOptions)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         let empty : Manufacturer[] = [];
@@ -99,7 +93,6 @@ export class MuseumService {
   addFirearm(toAdd : Firearm) : Observable<Firearm>{
     return this.http.post<Firearm>(this.baseURL+"/firearm/add", toAdd, this.httpOptions)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -108,10 +101,8 @@ export class MuseumService {
   }
 
   addCaliber(toAdd : Caliber) : Observable<Caliber>{
-    console.log(this.baseURL+"/caliber/add");
     return this.http.post<Caliber>(this.baseURL+"/caliber/add", toAdd)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -120,10 +111,8 @@ export class MuseumService {
   }
 
   editCaliber(toEdit : Caliber, id : number) : Observable<Caliber>{
-    console.log(this.baseURL+"/caliber/edit/"+id,toEdit);
     return this.http.post<Caliber>(this.baseURL+"/caliber/edit/"+id,toEdit)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -134,7 +123,6 @@ export class MuseumService {
   removeCaliber(id : number) : Observable<Caliber>{
     return this.http.delete<Caliber>(this.baseURL+"/caliber/remove/"+id)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -145,7 +133,6 @@ export class MuseumService {
   addActionType(toAdd : ActionType) : Observable<ActionType>{
     return this.http.post<ActionType>(this.baseURL+"/actiontype/add", toAdd)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -156,7 +143,6 @@ export class MuseumService {
   editActionType(toEdit : ActionType, id : number) : Observable<ActionType>{
     return this.http.post<ActionType>(this.baseURL+"/actiontype/edit/"+id, toEdit)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -167,7 +153,6 @@ export class MuseumService {
   removeActionType(id : number) : Observable<ActionType>{
     return this.http.delete<ActionType>(this.baseURL+"/actiontype/remove/"+id)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -178,7 +163,6 @@ export class MuseumService {
   addHydratedFirearm(toAdd : HydratedFirearm) : Observable<HydratedFirearm>{
     return this.http.post<HydratedFirearm>(this.baseURL+"/hydratedfirearm/add",toAdd)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -187,10 +171,8 @@ export class MuseumService {
   }
 
   editFirearm(toEdit : Firearm, id : number):Observable<string>{
-    console.log(toEdit);
     return this.http.post<string>(this.baseURL+"/firearm/edit/"+id, toEdit)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -201,7 +183,6 @@ export class MuseumService {
   removeFirearm(id : number){
     return this.http.delete<Firearm>(this.baseURL+"/firearm/remove/"+id)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -210,10 +191,8 @@ export class MuseumService {
   }
 
   addManufacturer(toAdd : Manufacturer) : Observable<Manufacturer>{
-    console.log(this.baseURL+"/manufacturer/add");
     return this.http.post<Manufacturer>(this.baseURL+"/manufacturer/add", toAdd)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -224,7 +203,6 @@ export class MuseumService {
   editManufacturer(toEdit : Manufacturer, id : number) : Observable<Manufacturer>{
     return this.http.post<Manufacturer>(this.baseURL+"/manufacturer/edit/"+id, toEdit)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);
@@ -235,7 +213,6 @@ export class MuseumService {
   removeManufacturer(id : number) : Observable<Manufacturer>{
     return this.http.delete<Manufacturer>(this.baseURL+"/manufacturer/remove/"+id)
     .pipe(
-      tap(x => console.log(x)),
       catchError(err => {
         console.log(err);
         return of(null);

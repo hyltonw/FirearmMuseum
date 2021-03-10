@@ -6,7 +6,6 @@ import { HydratedFirearm } from 'src/app/models/hydrated-firearm';
 import { Manufacturer } from 'src/app/models/manufacturer';
 import { MuseumService } from 'src/app/museum.service';
 import { Firearm } from 'src/app/models/firearm'
-import { FirearmComponent } from '../firearm/firearm.component';
 
 @Component({
   selector: 'app-hydrated-firearm',
@@ -32,10 +31,6 @@ export class HydratedFirearmComponent implements OnInit {
   constructor(private service : MuseumService) { }
 
   ngOnInit(): void {
-
-    console.log("hydrated firearm")
-    console.log(this.hydratedFirearm.manufacturer.manufacturerId)
-
     
     this.service.getAllManufacturers().subscribe( list => {
       this.manufacturers = list;

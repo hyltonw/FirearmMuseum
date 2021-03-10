@@ -18,8 +18,6 @@ export class ManufacturerComponent implements OnInit {
 
   ngOnInit(): void {
     this.name = this.manufacturer.manufacturer.replace(/\s/g,"").toLowerCase();
-
-    console.log(this.manufacturer)
   }
 
   toggleEdit(){

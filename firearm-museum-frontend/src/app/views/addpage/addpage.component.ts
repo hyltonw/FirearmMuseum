@@ -15,10 +15,7 @@ export class AddpageComponent implements OnInit {
   }
 
   addPicker(event){
-    console.log(event.target.value);
     this.pickedAdd = event.target.value;
-
-
   }
 
 }
