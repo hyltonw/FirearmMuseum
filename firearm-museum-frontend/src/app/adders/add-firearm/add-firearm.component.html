@@ -1,37 +1,37 @@
 <div class="infoCard">
     <div class="information">
         <div class="infoContainer">
-            <select #newManufacturer style="background-color: rgba(255, 255, 255, 0.342);">
+            <select #newManufacturer (change)="logList()" [(ngModel)]="mToAdd" style="background-color: rgba(255, 255, 255, 0.342);">
                 <option [value]="mToAdd"><option>
                 <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.manufacturer}}</option>
             </select>
 
-            <input [readonly]="false" #newName style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: left;" placeholder="name">
+            <input [readonly]="false" [(ngModel)]="nToAdd" #newName style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: left;" placeholder="name">
 
-            <select #newCaliber style="background-color: rgba(255, 255, 255, 0.342)">
+            <select #newCaliber [(ngModel)]="cToAdd" style="background-color: rgba(255, 255, 255, 0.342)">
                 <option [value]="cToAdd"></option>
                 <option *ngFor="let c of calibers" [ngValue]="c">{{c.caliberSize}} {{c.caliberUnit}}</option>
             </select>
             
-            <select  #newActionType style="background-color: rgba(255, 255, 255, 0.342)">
+            <select  #newActionType [(ngModel)]="atToAdd" style="background-color: rgba(255, 255, 255, 0.342)">
                 <option [value]="atToAdd"></option>
                 <option *ngFor="let at of actionTypes" [ngValue]="at">{{at.actionType}}</option>
             </select>
 
-            <select  #newFirearmType style="background-color: rgba(255, 255, 255, 0.342);">
+            <select  #newFirearmType [(ngModel)]="ftToAdd" style="background-color: rgba(255, 255, 255, 0.342);">
                 <option [value]="ftToAdd"></option>
                 <option *ngFor="let ft of firearmTypes" [ngValue]="ft">{{ft.firearmType}}</option>
             </select>
             
             <span style="display: inline;">Manufactured in </span>
-            <input [readonly]="false" #newProductionDate style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="year">
-            <input [readonly]="false" #newDonatedBy style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="donated">
-            <input [readonly]="false" #newSerialNumber style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="serial number">
+            <input [readonly]="false" [(ngModel)]="pdToAdd" #newProductionDate style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="year">
+            <!-- <input [readonly]="false" #newDonatedBy style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="donated"> -->
+            <!-- <input [readonly]="false" #newSerialNumber style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="serial number"> -->
 
             
-            <!-- <button (click)="addFirearm(newName.value,newCaliber.value,newManufacturer.value,newActionType.value,newFirearmType.value,newProductionDate.value,newSerialNumber.value,newDescription.value,newDonatedBy.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button> -->
+            <button (click)="addFirearm()" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">testing</button>
             
-            <button (click)="logList()" style="position: absolute; left: 0; bottom: 0;">Submit</button>
+            <!-- <button (click)="logList()" style="position: absolute; left: 0; bottom: 0;">Submit</button> -->
 
 
             <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
@@ -39,7 +39,7 @@
         </div>  
     </div>
     <div class="description">
-        <textarea  #newDescription [readonly]="false" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="dToAdd" rows="10" cols="100">
+        <textarea  #newDescription [(ngModel)]="dToAdd" [readonly]="false" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="dToAdd" rows="10" cols="100">
         </textarea>
     </div>
 </div>

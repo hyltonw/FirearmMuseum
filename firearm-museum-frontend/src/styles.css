@@ -107,3 +107,7 @@ textarea{
     resize: none;
 }
 
+body{
+    background-color: yellow;
+}
+
