@@ -40,12 +40,13 @@ public class PostgresCaliberDao implements CaliberDao {
 
         try{
             Integer caliberId = template.queryForObject("INSERT INTO \"Caliber\" " +
-                            "(\"calibersize\",\"caliberunit\",\"caliberdescription\")" +
-                    "VALUES (?,?,?) RETURNING \"caliberid\";",
+                            "(\"calibersize\",\"caliberunit\",\"caliberdescription\",\"caliberurl\")" +
+                    "VALUES (?,?,?,?) RETURNING \"caliberid\";",
                     new CaliberIdMapper(),
                     toAdd.getCaliberSize(),
                     toAdd.getCaliberUnit(),
-                    toAdd.getCaliberDescription());
+                    toAdd.getCaliberDescription(),
+                    toAdd.getUrl());
                     toAdd.setCaliberId(caliberId);
         } catch (DataIntegrityViolationException e){
             throw new DataIntegrityViolationException("an invalid Id was entered");
@@ -88,6 +89,7 @@ public class PostgresCaliberDao implements CaliberDao {
         String newCaliberUnit = toEdit.getCaliberUnit();
         String newCaliberSize = toEdit.getCaliberSize();
         String newCaliberDescription = toEdit.getCaliberDescription();
+        String newUrl = toEdit.getUrl();
         Caliber original = getCaliberById(id);
 
         if(newCaliberSize!=null){
@@ -101,6 +103,10 @@ public class PostgresCaliberDao implements CaliberDao {
         if(newCaliberDescription!=null){
             template.update("UPDATE \"Caliber\" SET \"caliberdescription\" = '" + newCaliberDescription + "' Where \"caliberid\" = '" + id + "';");
             original.setCaliberDescription(newCaliberDescription);
+        }
+        if(newUrl!=null){
+            template.update("UPDATE \"Caliber\" SET \"caliberurl\" = '" + newUrl + "' Where \"caliberid\" = '" + id + "';");
+            original.setUrl(newUrl);
         }
     }
 

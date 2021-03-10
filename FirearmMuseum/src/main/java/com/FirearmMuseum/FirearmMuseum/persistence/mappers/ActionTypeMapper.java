@@ -14,10 +14,12 @@ public class ActionTypeMapper implements RowMapper<ActionType> {
         Integer x = resultSet.getInt("actiontypeid");
         String y = resultSet.getString("actiontypename");
         String z = resultSet.getString("actiontypedescription");
+        String a = resultSet.getString("actiontypeurl");
 
         mappedActionType.setActionTypeId(x);
         mappedActionType.setActionType(y);
         mappedActionType.setActionTypeDescription(z);
+        mappedActionType.setUrl(a);
         return mappedActionType;
     }
 }

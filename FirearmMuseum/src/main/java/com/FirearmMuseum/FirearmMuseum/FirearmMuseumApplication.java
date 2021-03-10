@@ -10,26 +10,4 @@ public class FirearmMuseumApplication {
 		SpringApplication.run(FirearmMuseumApplication.class, args);
 	}
 
-
-
-
-
-	//TODO:
-//		git test
-
-//	DONE:
-//		As a User I should be able to add firearms.
-//		As a User I should be able to remove firearms.
-//		As a User I should be able to edit firearms.
-//		As a User I should be able to view a firearm by caliber.
-//		As a User I should be able to view a firearm by manufacturer.
-//		As a User I should be able to view a firearm by action type.
-//		As a User I should be able to view a firearm by firearm type.
-//		As a User I should be able to view a firearm by serial number.
-//		As a User I should be able to view a firearm by production date.
-//		As a User I should be able to search for firearms by caliber.
-//		As a User I should be able to search for firearms by manufacturer.
-//		As a User I should be able to search for firearms by action type.
-//		As a User I should be able to search for firearms by firearm type.
-//		As a User I should be able to search for firearms by production date.
 }

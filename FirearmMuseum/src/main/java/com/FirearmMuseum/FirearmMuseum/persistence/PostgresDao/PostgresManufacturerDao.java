@@ -33,11 +33,12 @@ public class PostgresManufacturerDao implements ManufacturerDao {
 
         try{
             Integer ManufacturerId = template.queryForObject("INSERT INTO \"Manufacturer\" " +
-                            "(\"manufacturername\", \"manufacturerdescription\")" +
-                            "VALUES (?,?) RETURNING \"manufacturersid\";",
+                            "(\"manufacturername\", \"manufacturerdescription\",\"manufacturerurl\")" +
+                            "VALUES (?,?,?) RETURNING \"manufacturersid\";",
                     new ManufacturerIdMapper(),
                     toAdd.getManufacturer(),
-                    toAdd.getManufacturerDescription());
+                    toAdd.getManufacturerDescription(),
+                    toAdd.getUrl());
                     toAdd.setManufacturerId( ManufacturerId );
 
         } catch (DataIntegrityViolationException e){
@@ -77,6 +78,7 @@ public class PostgresManufacturerDao implements ManufacturerDao {
 
         String newManufacturer = toEdit.getManufacturer();
         String newManufacturerDescription = toEdit.getManufacturerDescription();
+        String newUrl = toEdit.getUrl();
         Manufacturer original = getManufacturerById(id);
 
         if (newManufacturer != null) {
@@ -86,6 +88,10 @@ public class PostgresManufacturerDao implements ManufacturerDao {
         if (newManufacturerDescription!=null) {
             template.update("UPDATE \"Manufacturer\" SET \"manufacturerdescription\" = '" + newManufacturerDescription + "' WHERE \"manufacturersid\" = '" + id + "';");
             original.setManufacturerDescription(newManufacturerDescription);
+        }
+        if (newUrl!=null) {
+            template.update("UPDATE \"Manufacturer\" SET \"manufacturerurl\" = '" + newUrl + "' WHERE \"manufacturersid\" = '" + id + "';");
+            original.setUrl(newUrl);
         }
     }
 

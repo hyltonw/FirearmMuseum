@@ -39,6 +39,7 @@ public class FirearmMuseumService {
     public List<HydratedFirearm> getAllHydratedFirearms(){
 
         List<Firearm> arr = firearmDao.getAllFirearms();
+
         List<HydratedFirearm> toReturn = new ArrayList<>();
         for (int i = 0; i < arr.size(); i++) {
             Firearm toHydrate = arr.get(i);

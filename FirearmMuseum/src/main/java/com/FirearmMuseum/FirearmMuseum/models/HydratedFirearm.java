@@ -12,6 +12,8 @@ public class HydratedFirearm {
     private Integer serialNumber;
     private String description;
     private String donatedBy;
+    private String url;
+
 
 
 
@@ -26,7 +28,7 @@ public class HydratedFirearm {
         this.serialNumber = toHydrate.getSerialNumber();
         this.description = toHydrate.getDescription();
         this.donatedBy = toHydrate.getDonatedBy();
-
+        this.url = toHydrate.getUrl();
     }
 
 
@@ -108,5 +110,13 @@ public class HydratedFirearm {
 
     public void setDonatedBy(String donatedBy) {
         this.donatedBy = donatedBy;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

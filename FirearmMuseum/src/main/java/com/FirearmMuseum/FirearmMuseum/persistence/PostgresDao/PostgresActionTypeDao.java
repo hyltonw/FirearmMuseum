@@ -36,11 +36,12 @@ public class PostgresActionTypeDao implements ActionTypeDao {
             throw new IllegalArgumentException("the entered action type was null");
 
         try{
-            Integer actionTypeId = template.queryForObject("INSERT INTO \"ActionType\" (\"actiontypename\",\"actiontypedescription\")" +
-                            "VALUES (?,?) RETURNING \"actiontypeid\";",
+            Integer actionTypeId = template.queryForObject("INSERT INTO \"ActionType\" (\"actiontypename\",\"actiontypedescription\",\"actiontypeurl\")" +
+                            "VALUES (?,?,?) RETURNING \"actiontypeid\";",
                     new ActionTypeIdMapper(),
                     toAdd.getActionType(),
-                    toAdd.getActionTypeDescription());
+                    toAdd.getActionTypeDescription(),
+                    toAdd.getUrl());
                     toAdd.setActionTypeId( actionTypeId );
 
         } catch (DataIntegrityViolationException e){
@@ -68,6 +69,7 @@ public class PostgresActionTypeDao implements ActionTypeDao {
 
         String newActionType = toEdit.getActionType();
         String newActionTypeDescription = toEdit.getActionTypeDescription();
+        String newUrl = toEdit.getUrl();
         ActionType original = getActionTypeById(id);
 
         if(newActionType!=null){
@@ -77,6 +79,10 @@ public class PostgresActionTypeDao implements ActionTypeDao {
         if(newActionTypeDescription!=null){
             template.update("UPDATE \"ActionType\" SET \"actiontypedescription\" = '" + newActionTypeDescription + "' WHERE \"actiontypeid\" = '"+id+"';");
             original.setActionTypeDescription(newActionTypeDescription);
+        }
+        if(newUrl!=null){
+            template.update("UPDATE \"ActionType\" SET \"actiontypeurl\" = '" + newUrl + "' WHERE \"actiontypeid\" = '"+id+"';");
+            original.setUrl(newUrl);
         }
 
     }

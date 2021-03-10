@@ -13,6 +13,7 @@ public class FirearmTypeMapper implements RowMapper<FirearmType> {
         mappedFirearmType.setFirearmTypeId(resultSet.getInt("firearmtypeid"));
         mappedFirearmType.setFirearmType(resultSet.getString("firearmtypename"));
         mappedFirearmType.setFirearmTypeDescription(resultSet.getString("firearmtypedescription"));
+        mappedFirearmType.setUrl(resultSet.getString("firearmtypeurl"));
 
         return mappedFirearmType;
     }

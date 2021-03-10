@@ -21,6 +21,7 @@ public class FirearmMapper implements RowMapper<Firearm> {
         mappedFirearm.setName(resultSet.getString("firearmname"));
         mappedFirearm.setProductionDate(resultSet.getInt("productionyear"));
         mappedFirearm.setCaliberId(resultSet.getInt("caliberid"));
+        mappedFirearm.setUrl(resultSet.getString("url"));
 
         return mappedFirearm;
 

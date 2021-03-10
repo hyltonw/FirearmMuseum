@@ -52,8 +52,8 @@ public class PostgresFirearmDao implements FirearmDao {
 
         try {
             Integer firearmId = template.queryForObject("insert into \"Firearm\" (\"serialnumber\",\"description\",\"donatedby\",\"actiontypeid\",\n" +
-                            "\t\t\t\t\t   \"firearmtypeid\",\"manufacturerid\",\"firearmname\",\"productionyear\",\"caliberid\")\n" +
-                            "VALUES (?,?,?,?,?,?,?,?,?) RETURNING \"firearmid\";",
+                            "\t\t\t\t\t   \"firearmtypeid\",\"manufacturerid\",\"firearmname\",\"productionyear\",\"caliberid\",\"url\")\n" +
+                            "VALUES (?,?,?,?,?,?,?,?,?,?) RETURNING \"firearmid\";",
                     new FirearmIdMapper(),
                     toAdd.getSerialNumber(),
                     toAdd.getDescription(),
@@ -63,7 +63,8 @@ public class PostgresFirearmDao implements FirearmDao {
                     toAdd.getManufacturerId(),
                     toAdd.getName(),
                     toAdd.getProductionDate(),
-                    toAdd.getCaliberId());
+                    toAdd.getCaliberId(),
+                    toAdd.getUrl());
                     toAdd.setFirearmId( firearmId );
         } catch(DataIntegrityViolationException e){
             throw new DataIntegrityViolationException("An invalid id was entered.");
@@ -117,6 +118,7 @@ public class PostgresFirearmDao implements FirearmDao {
         String newName = toEdit.getName();
         Integer newProductionYear = toEdit.getProductionDate();
         Integer newCaliberId = toEdit.getCaliberId();
+        String newUrl = toEdit.getUrl();
         Firearm original = getFirearmById(id);
         if(newSerialNum!=null) {
             template.update("UPDATE \"Firearm\" SET \"serialnumber\" = '" + newSerialNum + "' WHERE \"firearmid\" = '" + id + "';");
@@ -153,6 +155,10 @@ public class PostgresFirearmDao implements FirearmDao {
         if(newCaliberId!=null) {
             template.update("UPDATE \"Firearm\" SET \"caliberid\" = '" + newCaliberId + "' WHERE \"firearmid\" = '" + id + "';");
             original.setCaliberId(newCaliberId);
+        }
+        if(newUrl!=null) {
+            template.update("UPDATE \"Firearm\" SET \"url\" = '" + newUrl + "' WHERE \"firearmid\" = '" + id + "';");
+            original.setUrl(newUrl);
         }
     }
 

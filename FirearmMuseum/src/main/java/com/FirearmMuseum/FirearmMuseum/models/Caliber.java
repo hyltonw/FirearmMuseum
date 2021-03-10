@@ -6,22 +6,26 @@ public class Caliber {
     private String caliberSize;
     private String caliberUnit;
     private String caliberDescription;
+    private String url;
+
 
 
     public Caliber(){
 
     }
 
-    public Caliber(Integer caliberId, String caliberSize, String caliberUnit){
+    public Caliber(Integer caliberId, String caliberSize, String caliberUnit, String url){
         this.caliberId = caliberId;
         this.caliberSize = caliberSize;
         this.caliberUnit = caliberUnit;
+        this.url = url;
     }
 
     public Caliber(Caliber that){
         this.caliberId = that.caliberId;
         this.caliberUnit = that.caliberUnit;
         this.caliberSize = that.caliberSize;
+        this.url = that.url;
     }
 
     public Integer getCaliberId() {
@@ -54,5 +58,13 @@ public class Caliber {
 
     public void setCaliberDescription(String caliberDescription) {
         this.caliberDescription = caliberDescription;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
