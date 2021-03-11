@@ -29,7 +29,18 @@ a{
     height: 440px;
     overflow: hidden;
     border-radius: 20px;
-    
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.192);
+}
+
+.welcomeCard{
+    position: relative;
+    background: linear-gradient(to bottom, olive 0%, rgb(78, 78, 78) 100%);
+    margin-top: 50px;
+    display: inline-block;
+    width: 90%;
+    height: 440px;
+    overflow: hidden;
+    border-radius: 20px;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.192);
 }
 
@@ -53,7 +64,7 @@ a{
 
 
 .shortgun{
-    height: 80%;
+    height: 75%;
     width: 95%;
     display: inline-block;
     border-style: solid;

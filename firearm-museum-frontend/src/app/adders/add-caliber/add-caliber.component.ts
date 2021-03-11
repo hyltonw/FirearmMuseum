@@ -9,7 +9,7 @@ import { MuseumService } from 'src/app/museum.service';
 })
 export class AddCaliberComponent implements OnInit {
 
-  imgSrc : string;
+  imgSrc : string = "https://i.imgur.com/FK3SITD.png";
 
   constructor(private service : MuseumService) { }
 

@@ -19,6 +19,7 @@ export class HydratedFirearmComponent implements OnInit {
 
   gunName : string;
   manufacturerName : string;
+  showDeleteWindow : boolean = false;
 
   manufacturers : Manufacturer[];
   calibers : Caliber[];
@@ -63,10 +64,6 @@ export class HydratedFirearmComponent implements OnInit {
 
   toggleEdit(){
     this.editing=!this.editing
-    console.log("hydrated firearm")
-    console.log(this.hydratedFirearm)
-    console.log("dehydrated firearm")
-    console.log(this.dehydratedFirearm);
   }
 
   editHydratedFirearm(){
@@ -87,10 +84,21 @@ export class HydratedFirearmComponent implements OnInit {
   }
 
     this.service.editFirearm(this.dehydratedFirearm, this.hydratedFirearm.firearmId).subscribe(x => console.log(x))
+    if(this.hydratedFirearm.firearmType.firearmType.toLowerCase()=="pistol" || this.hydratedFirearm.firearmType.firearmType.toLowerCase()=="revolver" ){
+      this.containerPicker = "shortgun";
+    } else {
+      this.containerPicker = "longgun";
+    }
+  }
+
+  deleteWindow(){
+    this.showDeleteWindow = true;
+    this.removeHydratedFirearm();
   }
 
   removeHydratedFirearm(){
-    return this.service.removeFirearm(this.hydratedFirearm.firearmId).subscribe(x => console.log(x));
+    this.service.removeFirearm(this.hydratedFirearm.firearmId).subscribe(x => console.log(x));
+    window.location.reload()
   }
 
 

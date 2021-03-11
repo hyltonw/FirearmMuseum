@@ -32,6 +32,7 @@ export class ManufacturerComponent implements OnInit {
   removeManufacturer(){
     this.editing =!this.editing;
     this.service.removeManufacturer(this.manufacturer.manufacturerId).subscribe(x => console.log(x));
+    window.location.reload()
   }
 
 }

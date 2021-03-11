@@ -28,6 +28,8 @@ export class AddFirearmComponent implements OnInit {
   snToAdd : number;
   dbToAdd : string;
 
+  imgSrc : string = "https://i.imgur.com/FK3SITD.png";
+
   manufacturers : Manufacturer[];
   calibers : Caliber[];
   actionTypes : ActionType[];
@@ -71,7 +73,8 @@ export class AddFirearmComponent implements OnInit {
     productionDate: this.pdToAdd,
     serialNumber: this.snToAdd,
     description: this.dToAdd,
-    donatedBy: this.dbToAdd
+    donatedBy: this.dbToAdd,
+    firearmUrl: this.imgSrc
     }
     
     return this.service.addFirearm(this.dehydratedFirearm).subscribe(x => console.log(x));  

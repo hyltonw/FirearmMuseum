@@ -30,7 +30,8 @@ export class CaliberComponent implements OnInit {
 
   removeCaliber(){
     this.editing = !this.editing;
-    return this.service.removeCaliber(this.caliber.caliberId).subscribe(x => console.log(x));
+    this.service.removeCaliber(this.caliber.caliberId).subscribe(x => console.log(x));
+    window.location.reload()
   }
 
 }

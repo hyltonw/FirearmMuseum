@@ -30,7 +30,8 @@ export class ActionTypeComponent implements OnInit {
 
   removeActionType(){
     this.editing=!this.editing;
-    return this.service.removeActionType(this.ActionType.actionTypeId).subscribe(x => console.log(x))
+    this.service.removeActionType(this.ActionType.actionTypeId).subscribe(x => console.log(x))
+    window.location.reload()
   }
 
 }

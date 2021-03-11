@@ -5,12 +5,12 @@
 
         <div class="infoContainer">
             <input #sizeId type="text" placeholder="size">
-            <input #unitId type="text" placeholder="units">
+            <input #unitId type="text" placeholder="units / name">
             <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value,caliberUrl.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button>
             <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
         </div>  
     </div>
     <div class="description">
-        <textarea style="background-color: white;" rows="10" cols="100" #descriptionId placeholder="description"></textarea>
+        <textarea style="background-color: rgba(255, 255, 255, 0.342);" rows="25" cols="100" #descriptionId placeholder="description"></textarea>
     </div>
 </div>
