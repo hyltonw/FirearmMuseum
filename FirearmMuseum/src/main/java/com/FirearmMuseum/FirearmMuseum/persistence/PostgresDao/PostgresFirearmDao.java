@@ -110,7 +110,7 @@ public class PostgresFirearmDao implements FirearmDao {
 
         Integer newSerialNum = toEdit.getSerialNumber();
         String newDescription = toEdit.getDescription().replace("'","''");
-        String newDonatedBy = toEdit.getDonatedBy().replace("'","''");
+        String newDonatedBy = toEdit.getDonatedBy();
         Integer newActionTypeId = toEdit.getActionTypeId();
         Integer newFirearmTypeId = toEdit.getFirearmTypeId();
         Integer newManufacturerId = toEdit.getManufacturerId();
