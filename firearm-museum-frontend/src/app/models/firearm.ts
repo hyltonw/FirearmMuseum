@@ -9,6 +9,6 @@ export interface Firearm{
     serialNumber : number;
     description : string;
     donatedBy : string;
-
+    firearmUrl?: string;
 
 }

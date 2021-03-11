@@ -9,14 +9,16 @@ import { MuseumService } from 'src/app/museum.service';
 })
 export class AddCaliberComponent implements OnInit {
 
+  imgSrc : string;
+
   constructor(private service : MuseumService) { }
 
   ngOnInit(): void {
   }
 
-  addCaliber(caliberSize: string, caliberUnit: string, caliberDescription: string){
+  addCaliber(caliberSize: string, caliberUnit: string, caliberDescription: string, imgSrc){
 
-    let toAdd : Caliber = {caliberSize,caliberUnit,caliberDescription};
+    let toAdd : Caliber = {caliberSize,caliberUnit,caliberDescription, caliberUrl : imgSrc};
     return this.service.addCaliber(toAdd).subscribe(x => console.log(x));
   }
 

@@ -10,14 +10,14 @@ import { MuseumService } from 'src/app/museum.service';
 export class ManufacturerComponent implements OnInit {
 
   @Input() manufacturer : Manufacturer;
-  @Input() name : string;
 
   editing : boolean = true;
+  imgSrc : string;
 
   constructor(private service: MuseumService) { }
 
   ngOnInit(): void {
-    this.name = this.manufacturer.manufacturer.replace(/\s/g,"").toLowerCase();
+    console.log(this.manufacturer)
   }
 
   toggleEdit(){

@@ -28,7 +28,7 @@ public class HydratedFirearm {
         this.serialNumber = toHydrate.getSerialNumber();
         this.description = toHydrate.getDescription();
         this.donatedBy = toHydrate.getDonatedBy();
-        this.url = toHydrate.getUrl();
+        this.url = toHydrate.getFirearmUrl();
     }
 
 

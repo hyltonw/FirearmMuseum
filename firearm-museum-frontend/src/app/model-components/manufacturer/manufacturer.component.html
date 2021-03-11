@@ -1,14 +1,16 @@
 <div class="infoCard">
     <div class="information">
-        <img class="picContainer" src="../../../assets/{{name}}/logo.jpg">
+        <img class="picContainer" [src]="manufacturer.manufacturerUrl">
+        <input *ngIf="!editing" type="text" [(ngModel)]="manufacturer.manufacturerUrl" [value]="manufacturer.manufacturerUrl">
+        
         <div class="infoContainer">
-            <textarea [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; background-color: peru; border-width: 0px; resize: none; text-align: center;" rows="1" cols="53">{{manufacturer.manufacturer}}
-            </textarea>
+            <span *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; border-width: 0px; background-color: inherit; resize: none; text-align: center;">{{manufacturer.manufacturer}}</span>
+            <textarea *ngIf="!editing"[readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center;" rows="1" cols="53">{{manufacturer.manufacturer}}</textarea>
         </div>  
     </div>
     <div class="description">
-        <textarea [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: peru; border-width: 0px; resize: none;" rows="10" cols="100">
-        </textarea>
+        <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: inherit; border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
+        <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
     </div>
     <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editManufacturer()">submit</button>
     <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeManufacturer()">Delete</button>

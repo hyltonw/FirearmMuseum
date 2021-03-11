@@ -38,7 +38,7 @@ public class PostgresFirearmTypeDao implements FirearmTypeDao {
                     new FirearmTypeIdMapper(),
                     toAdd.getFirearmType(),
                     toAdd.getFirearmTypeDescription(),
-                    toAdd.getUrl());
+                    toAdd.getFirearmTypeUrl());
                     toAdd.setFirearmTypeId( FirearmTypeId );
 
         } catch (DataIntegrityViolationException e){
@@ -62,9 +62,9 @@ public class PostgresFirearmTypeDao implements FirearmTypeDao {
         if(!idExists)
             throw new IllegalArgumentException("The id entered does not exist");
 
-        String newFirearmType = toEdit.getFirearmType();
-        String newFiearmTypeDescription = toEdit.getFirearmTypeDescription();
-        String newUrl = toEdit.getUrl();
+        String newFirearmType = toEdit.getFirearmType().replace("'","''");
+        String newFiearmTypeDescription = toEdit.getFirearmTypeDescription().replace("'","''");
+        String newUrl = toEdit.getFirearmTypeUrl();
         FirearmType original = getFirearmTypeById(id);
 
         if(newFirearmType!=null){
@@ -77,7 +77,7 @@ public class PostgresFirearmTypeDao implements FirearmTypeDao {
         }
         if(newUrl!=null){
             template.update("UPDATE \"FirearmType\" SET \"firearmtypeurl\" = '" + newUrl + "' WHERE \"firearmtypeid\" = '" + id + "';");
-            original.setUrl(newUrl);
+            original.setFirearmTypeUrl(newUrl);
         }
     }
 

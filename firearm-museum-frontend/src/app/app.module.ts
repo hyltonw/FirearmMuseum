@@ -23,8 +23,6 @@ import { HomepageComponent } from './views/homepage/homepage.component';
 import { AddpageComponent } from './views/addpage/addpage.component';
 import { NavigationComponent } from './views/navigation/navigation.component';
 import { AddManufacturerComponent } from './adders/add-manufacturer/add-manufacturer.component';
-import { RemoveManufacturerComponent } from './removers/remove-manufacturer/remove-manufacturer.component';
-import { EditManufacturerComponent } from './editors/edit-manufacturer/edit-manufacturer.component';
 import { AddActionTypeComponent } from './adders/add-action-type/add-action-type.component';
 import { AddFirearmTypeComponent } from './adders/add-firearm-type/add-firearm-type.component';
 import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-hydrated-firearm.component';
@@ -50,8 +48,6 @@ import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-h
     AddpageComponent,
     NavigationComponent,
     AddManufacturerComponent,
-    RemoveManufacturerComponent,
-    EditManufacturerComponent,
     AddActionTypeComponent,
     AddFirearmTypeComponent,
     AddHydratedFirearmComponent

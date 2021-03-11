@@ -14,4 +14,5 @@ export interface HydratedFirearm{
     serialNumber? : number;
     description? :  string;
     donatedBy? : string;
+    url : string;
 }

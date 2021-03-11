@@ -5,23 +5,23 @@ public class Manufacturer {
     private Integer manufacturerId;
     private String manufacturer;
     private String manufacturerDescription;
-    private String url;
+    private String manufacturerUrl;
 
 
     public Manufacturer(){
 
     }
 
-    public Manufacturer(Integer manufacturerId, String manufacturer, String url){
+    public Manufacturer(Integer manufacturerId, String manufacturer, String manufacturerUrl){
         this.manufacturerId = manufacturerId;
         this.manufacturer = manufacturer;
-        this.url = url;
+        this.manufacturerUrl = manufacturerUrl;
     }
 
     public Manufacturer(Manufacturer that){
         this.manufacturerId = that.manufacturerId;
         this.manufacturer = that.manufacturer;
-        this.url = that.url;
+        this.manufacturerUrl = that.manufacturerUrl;
     }
 
     public Integer getManufacturerId() {
@@ -48,11 +48,11 @@ public class Manufacturer {
         this.manufacturerDescription = manufacturerDescription;
     }
 
-    public String getUrl() {
-        return url;
+    public String getManufacturerUrl() {
+        return manufacturerUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setManufacturerUrl(String manufacturerUrl) {
+        this.manufacturerUrl = manufacturerUrl;
     }
 }

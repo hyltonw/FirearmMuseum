@@ -5,22 +5,22 @@ public class ActionType {
     private Integer actionTypeId;
     private String actionType;
     private String actionTypeDescription;
-    private String url;
+    private String actionTypeUrl;
 
     public ActionType(){
 
     }
 
-    public ActionType(Integer actionTypeId, String actionType, String url){
+    public ActionType(Integer actionTypeId, String actionType, String ActionTypeUrl){
         this.actionTypeId = actionTypeId;
         this.actionType = actionType;
-        this.url = url;
+        this.actionTypeUrl = ActionTypeUrl;
     }
 
     public ActionType(ActionType that){
         this.actionTypeId = that.actionTypeId;
         this.actionType = that.actionType;
-        this.url = that.url;
+        this.actionTypeUrl = that.actionTypeUrl;
     }
 
     public Integer getActionTypeId() {
@@ -47,11 +47,11 @@ public class ActionType {
         this.actionTypeDescription = actionTypeDescription;
     }
 
-    public String getUrl() {
-        return url;
+    public String getActionTypeUrl() {
+        return actionTypeUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setActionTypeUrl(String actionTypeUrl) {
+        this.actionTypeUrl = actionTypeUrl;
     }
 }

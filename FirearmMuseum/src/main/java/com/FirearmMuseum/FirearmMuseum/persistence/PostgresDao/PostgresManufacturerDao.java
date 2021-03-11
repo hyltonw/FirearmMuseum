@@ -38,7 +38,7 @@ public class PostgresManufacturerDao implements ManufacturerDao {
                     new ManufacturerIdMapper(),
                     toAdd.getManufacturer(),
                     toAdd.getManufacturerDescription(),
-                    toAdd.getUrl());
+                    toAdd.getManufacturerUrl());
                     toAdd.setManufacturerId( ManufacturerId );
 
         } catch (DataIntegrityViolationException e){
@@ -76,9 +76,9 @@ public class PostgresManufacturerDao implements ManufacturerDao {
         if (!idExists)
             throw new IllegalArgumentException("The id entered does not exist");
 
-        String newManufacturer = toEdit.getManufacturer();
-        String newManufacturerDescription = toEdit.getManufacturerDescription();
-        String newUrl = toEdit.getUrl();
+        String newManufacturer = toEdit.getManufacturer().replace("'","''");
+        String newManufacturerDescription = toEdit.getManufacturerDescription().replace("'","''");
+        String newUrl = toEdit.getManufacturerUrl();
         Manufacturer original = getManufacturerById(id);
 
         if (newManufacturer != null) {
@@ -91,7 +91,7 @@ public class PostgresManufacturerDao implements ManufacturerDao {
         }
         if (newUrl!=null) {
             template.update("UPDATE \"Manufacturer\" SET \"manufacturerurl\" = '" + newUrl + "' WHERE \"manufacturersid\" = '" + id + "';");
-            original.setUrl(newUrl);
+            original.setManufacturerUrl(newUrl);
         }
     }
 

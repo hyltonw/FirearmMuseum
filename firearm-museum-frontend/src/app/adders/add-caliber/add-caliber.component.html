@@ -1,9 +1,12 @@
 <div class="infoCard">
     <div class="information">
+        <img class="picContainer" [src]="imgSrc">        
+        <input #caliberUrl [(ngModel)]="imgSrc" type="text" placeholder="image url">
+
         <div class="infoContainer">
             <input #sizeId type="text" placeholder="size">
             <input #unitId type="text" placeholder="units">
-            <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button>
+            <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value,caliberUrl.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button>
             <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
         </div>  
     </div>

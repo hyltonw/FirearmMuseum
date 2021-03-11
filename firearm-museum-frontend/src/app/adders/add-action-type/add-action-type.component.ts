@@ -9,14 +9,16 @@ import { MuseumService } from 'src/app/museum.service';
 })
 export class AddActionTypeComponent implements OnInit {
 
+  imgSrc : string;
+
   constructor(private service : MuseumService) { }
 
   ngOnInit(): void {
   }
 
-  addActionType(actionType: string,actionTypeDescription: string){
+  addActionType(actionType: string,actionTypeDescription: string, actionTypeUrl : string){
 
-    let toAdd : ActionType = {actionType,actionTypeDescription};
+    let toAdd : ActionType = {actionType,actionTypeDescription,actionTypeUrl : this.imgSrc};
     return this.service.addActionType(toAdd).subscribe(x => console.log(x));
   }
 }

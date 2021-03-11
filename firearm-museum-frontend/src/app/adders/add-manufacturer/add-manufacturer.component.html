@@ -1,8 +1,11 @@
 <div class="infoCard">
     <div class="information">
+        <img class="picContainer" [src]="imgSrc">        
+        <input #manufacturerUrl [(ngModel)]="imgSrc" type="text" placeholder="image url">
+        
         <div class="infoContainer">
             <input #nameId type="text" placeholder="name">
-            <button (click)="addManufacturer(nameId.value, descriptionId.value)" style="position: absolute; left: 0; bottom: 0;" routerLink="/manufacturer">Submit</button>
+            <button (click)="addManufacturer(nameId.value, descriptionId.value, manufacturerUrl.value)" style="position: absolute; left: 0; bottom: 0;" routerLink="/manufacturer">Submit</button>
             <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/manufacturer">Cancel</button>
         </div>  
     </div>

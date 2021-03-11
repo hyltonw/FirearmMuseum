@@ -46,7 +46,7 @@ public class PostgresCaliberDao implements CaliberDao {
                     toAdd.getCaliberSize(),
                     toAdd.getCaliberUnit(),
                     toAdd.getCaliberDescription(),
-                    toAdd.getUrl());
+                    toAdd.getCaliberUrl());
                     toAdd.setCaliberId(caliberId);
         } catch (DataIntegrityViolationException e){
             throw new DataIntegrityViolationException("an invalid Id was entered");
@@ -86,10 +86,10 @@ public class PostgresCaliberDao implements CaliberDao {
         if(!idExists)
             throw new IllegalArgumentException("The id entered does not exist");
 
-        String newCaliberUnit = toEdit.getCaliberUnit();
+        String newCaliberUnit = toEdit.getCaliberUnit().replace("'","''");
         String newCaliberSize = toEdit.getCaliberSize();
-        String newCaliberDescription = toEdit.getCaliberDescription();
-        String newUrl = toEdit.getUrl();
+        String newCaliberDescription = toEdit.getCaliberDescription().replace("'","''");
+        String newUrl = toEdit.getCaliberUrl();
         Caliber original = getCaliberById(id);
 
         if(newCaliberSize!=null){
@@ -106,7 +106,7 @@ public class PostgresCaliberDao implements CaliberDao {
         }
         if(newUrl!=null){
             template.update("UPDATE \"Caliber\" SET \"caliberurl\" = '" + newUrl + "' Where \"caliberid\" = '" + id + "';");
-            original.setUrl(newUrl);
+            original.setCaliberUrl(newUrl);
         }
     }
 

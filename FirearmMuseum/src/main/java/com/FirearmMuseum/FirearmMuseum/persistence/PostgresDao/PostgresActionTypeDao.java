@@ -41,7 +41,7 @@ public class PostgresActionTypeDao implements ActionTypeDao {
                     new ActionTypeIdMapper(),
                     toAdd.getActionType(),
                     toAdd.getActionTypeDescription(),
-                    toAdd.getUrl());
+                    toAdd.getActionTypeUrl());
                     toAdd.setActionTypeId( actionTypeId );
 
         } catch (DataIntegrityViolationException e){
@@ -67,9 +67,9 @@ public class PostgresActionTypeDao implements ActionTypeDao {
         if(!idExists)
             throw new IllegalArgumentException("The id entered does not exist");
 
-        String newActionType = toEdit.getActionType();
-        String newActionTypeDescription = toEdit.getActionTypeDescription();
-        String newUrl = toEdit.getUrl();
+        String newActionType = toEdit.getActionType().replace("'","''");
+        String newActionTypeDescription = toEdit.getActionTypeDescription().replace("'","''");
+        String newUrl = toEdit.getActionTypeUrl();
         ActionType original = getActionTypeById(id);
 
         if(newActionType!=null){
@@ -82,7 +82,7 @@ public class PostgresActionTypeDao implements ActionTypeDao {
         }
         if(newUrl!=null){
             template.update("UPDATE \"ActionType\" SET \"actiontypeurl\" = '" + newUrl + "' WHERE \"actiontypeid\" = '"+id+"';");
-            original.setUrl(newUrl);
+            original.setActionTypeUrl(newUrl);
         }
 
     }

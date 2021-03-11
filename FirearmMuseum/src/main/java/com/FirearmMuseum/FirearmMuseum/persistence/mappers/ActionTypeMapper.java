@@ -19,7 +19,7 @@ public class ActionTypeMapper implements RowMapper<ActionType> {
         mappedActionType.setActionTypeId(x);
         mappedActionType.setActionType(y);
         mappedActionType.setActionTypeDescription(z);
-        mappedActionType.setUrl(a);
+        mappedActionType.setActionTypeUrl(a);
         return mappedActionType;
     }
 }

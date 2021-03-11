@@ -82,7 +82,8 @@ export class HydratedFirearmComponent implements OnInit {
     productionDate : this.hydratedFirearm.productionDate,
     serialNumber : this.hydratedFirearm.serialNumber,
     description : this.hydratedFirearm.description,
-    donatedBy : this.hydratedFirearm.donatedBy
+    donatedBy : this.hydratedFirearm.donatedBy,
+    firearmUrl : this.hydratedFirearm.url
   }
 
     this.service.editFirearm(this.dehydratedFirearm, this.hydratedFirearm.firearmId).subscribe(x => console.log(x))

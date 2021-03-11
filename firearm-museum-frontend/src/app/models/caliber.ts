@@ -3,4 +3,5 @@ export interface Caliber{
     caliberSize: string;
     caliberUnit: string;
     caliberDescription: string;
+    caliberUrl: string;
 }

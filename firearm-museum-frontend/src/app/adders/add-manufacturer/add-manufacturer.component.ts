@@ -9,14 +9,17 @@ import { MuseumService } from 'src/app/museum.service';
 })
 export class AddManufacturerComponent implements OnInit {
 
+  imgSrc : string;
+
   constructor(private service: MuseumService) { }
 
   ngOnInit(): void {
   }
 
-  addManufacturer(name: string, description: string){
+  addManufacturer(name: string, description: string, imgSrc){
 
-    let toAdd : Manufacturer={manufacturer : name, manufacturerDescription : description};
+    let x = 5;
+    let toAdd : Manufacturer={manufacturer : name, manufacturerDescription : description, manufacturerUrl: imgSrc};
     this.service.addManufacturer(toAdd).subscribe(x => console.log(x));
 
 

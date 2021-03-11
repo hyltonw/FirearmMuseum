@@ -21,8 +21,7 @@ public class PostgresFirearmDao implements FirearmDao {
     @Override
     public List<Firearm> getAllFirearms() {
 
-        List<Firearm> allFirearms = template.query("SELECT \"Firearm\".firearmid,\"Firearm\".serialnumber,\"Firearm\".description,\"Firearm\".donatedby,\"Firearm\".actiontypeid,\"Firearm\".firearmtypeid,\"Firearm\".manufacturerid,\"Firearm\".firearmname,\"Firearm\".productionyear,\"Firearm\".caliberid\n" +
-                        "FROM \"Firearm\";",
+        List<Firearm> allFirearms = template.query("SELECT \"Firearm\".firearmid,\"Firearm\".serialnumber,\"Firearm\".description,\"Firearm\".donatedby,\"Firearm\".actiontypeid,\"Firearm\".firearmtypeid,\"Firearm\".manufacturerid,\"Firearm\".firearmname,\"Firearm\".productionyear,\"Firearm\".caliberid, \"Firearm\".url FROM \"Firearm\";",
                 new FirearmMapper() );
 
         return allFirearms;
@@ -64,7 +63,7 @@ public class PostgresFirearmDao implements FirearmDao {
                     toAdd.getName(),
                     toAdd.getProductionDate(),
                     toAdd.getCaliberId(),
-                    toAdd.getUrl());
+                    toAdd.getFirearmUrl());
                     toAdd.setFirearmId( firearmId );
         } catch(DataIntegrityViolationException e){
             throw new DataIntegrityViolationException("An invalid id was entered.");
@@ -110,15 +109,15 @@ public class PostgresFirearmDao implements FirearmDao {
             throw new InvalidFirearmIdException("The id entered is invalid");
 
         Integer newSerialNum = toEdit.getSerialNumber();
-        String newDescription = toEdit.getDescription();
-        String newDonatedBy = toEdit.getDonatedBy();
+        String newDescription = toEdit.getDescription().replace("'","''");
+        String newDonatedBy = toEdit.getDonatedBy().replace("'","''");
         Integer newActionTypeId = toEdit.getActionTypeId();
         Integer newFirearmTypeId = toEdit.getFirearmTypeId();
         Integer newManufacturerId = toEdit.getManufacturerId();
-        String newName = toEdit.getName();
+        String newName = toEdit.getName().replace("'","''");
         Integer newProductionYear = toEdit.getProductionDate();
         Integer newCaliberId = toEdit.getCaliberId();
-        String newUrl = toEdit.getUrl();
+        String newUrl = toEdit.getFirearmUrl();
         Firearm original = getFirearmById(id);
         if(newSerialNum!=null) {
             template.update("UPDATE \"Firearm\" SET \"serialnumber\" = '" + newSerialNum + "' WHERE \"firearmid\" = '" + id + "';");
@@ -158,7 +157,7 @@ public class PostgresFirearmDao implements FirearmDao {
         }
         if(newUrl!=null) {
             template.update("UPDATE \"Firearm\" SET \"url\" = '" + newUrl + "' WHERE \"firearmid\" = '" + id + "';");
-            original.setUrl(newUrl);
+            original.setFirearmUrl(newUrl);
         }
     }
 

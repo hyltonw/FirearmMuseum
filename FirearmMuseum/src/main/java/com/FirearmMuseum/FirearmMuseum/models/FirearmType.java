@@ -5,23 +5,23 @@ public class FirearmType {
     private Integer firearmTypeId;
     private String firearmType;
     private String firearmTypeDescription;
-    private String url;
+    private String firearmTypeUrl;
 
 
     public FirearmType(){
 
     }
 
-    public FirearmType(Integer firearmTypeId, String firearmType, String url){
+    public FirearmType(Integer firearmTypeId, String firearmType, String firearmTypeUrl){
         this.firearmTypeId = firearmTypeId;
         this.firearmType = firearmType;
-        this.url = url;
+        this.firearmTypeUrl = firearmTypeUrl;
     }
 
     public FirearmType(FirearmType that){
         this.firearmTypeId = that.firearmTypeId;
         this.firearmType = that.firearmType;
-        this.url = that.url;
+        this.firearmTypeUrl = that.firearmTypeUrl;
     }
 
     public Integer getFirearmTypeId() {
@@ -48,11 +48,11 @@ public class FirearmType {
         this.firearmTypeDescription = firearmTypeDescription;
     }
 
-    public String getUrl() {
-        return url;
+    public String getFirearmTypeUrl() {
+        return firearmTypeUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setFirearmTypeUrl(String firearmTypeUrl) {
+        this.firearmTypeUrl = firearmTypeUrl;
     }
 }

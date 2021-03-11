@@ -15,7 +15,6 @@ import { AddpageComponent } from './views/addpage/addpage.component';
 import { AddManufacturerComponent } from './adders/add-manufacturer/add-manufacturer.component';
 import { AddCaliberComponent } from './adders/add-caliber/add-caliber.component';
 import { AddActionTypeComponent } from './adders/add-action-type/add-action-type.component';
-import { EditManufacturerComponent } from './editors/edit-manufacturer/edit-manufacturer.component';
 import { CaliberComponent } from './model-components/caliber/caliber.component';
 import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-hydrated-firearm.component';
 

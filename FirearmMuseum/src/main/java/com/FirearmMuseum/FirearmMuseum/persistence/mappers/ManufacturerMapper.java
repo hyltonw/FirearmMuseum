@@ -13,7 +13,7 @@ public class ManufacturerMapper implements RowMapper<Manufacturer> {
         mappedManufacturer.setManufacturerId(resultSet.getInt("manufacturersid"));
         mappedManufacturer.setManufacturer(resultSet.getString("manufacturername"));
         mappedManufacturer.setManufacturerDescription(resultSet.getString("manufacturerdescription"));
-        mappedManufacturer.setUrl("manufacturerurl");
+        mappedManufacturer.setManufacturerUrl(resultSet.getString("manufacturerurl"));
 
         return mappedManufacturer;
     }

@@ -26,6 +26,7 @@ export class AddFirearmComponent implements OnInit {
   dToAdd : string;
   pdToAdd : number;
   snToAdd : number;
+  dbToAdd : string;
 
   manufacturers : Manufacturer[];
   calibers : Caliber[];
@@ -62,18 +63,18 @@ export class AddFirearmComponent implements OnInit {
   addFirearm() {
 
     this.dehydratedFirearm = {
-                              name: this.nToAdd,
-                              caliberId: this.cToAdd.caliberId,
-                              manufacturerId : this.mToAdd.manufacturerId,
-                              actionTypeId: this.atToAdd.actionTypeId,
-                              firearmTypeId: this.ftToAdd.firearmTypeId,
-                              productionDate: this.pdToAdd,
-                              serialNumber: this.snToAdd,
-                              description: this.dToAdd,
-                              donatedBy: this.dToAdd
-                             }
+    name: this.nToAdd,
+    caliberId: this.cToAdd.caliberId,
+    manufacturerId : this.mToAdd.manufacturerId,
+    actionTypeId: this.atToAdd.actionTypeId,
+    firearmTypeId: this.ftToAdd.firearmTypeId,
+    productionDate: this.pdToAdd,
+    serialNumber: this.snToAdd,
+    description: this.dToAdd,
+    donatedBy: this.dbToAdd
+    }
     
-  return this.service.addFirearm(this.dehydratedFirearm).subscribe(x => console.log(x));  
+    return this.service.addFirearm(this.dehydratedFirearm).subscribe(x => console.log(x));  
 
   }
 

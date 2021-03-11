@@ -12,7 +12,7 @@ public class Firearm {
     private Integer serialNumber;
     private String description;
     private String donatedBy;
-    private String url;
+    private String firearmUrl;
 
 
     public Firearm(){
@@ -21,7 +21,7 @@ public class Firearm {
 
     public Firearm(String name, Integer caliberId, Integer manufacturer, Integer actionType, Integer firearmType,
                    Integer productionDate, Integer serialNumber, String description, String donatedBy, Integer firearmId,
-                   String url){
+                   String firearmUrl){
 
         this.firearmId = firearmId;
         this.name = name;
@@ -33,7 +33,7 @@ public class Firearm {
         this.serialNumber = serialNumber;
         this.description = description;
         this.donatedBy = donatedBy;
-        this.url = url;
+        this.firearmUrl = firearmUrl;
     }
 
 //    public Firearm(String name, Integer caliberId, Integer manufacturer, Integer actionType, Integer firearmType,
@@ -65,7 +65,7 @@ public class Firearm {
         this.serialNumber = that.serialNumber;
         this.description = that.description;
         this.donatedBy = that.donatedBy;
-        this.url = that.url;
+        this.firearmUrl = that.firearmUrl;
     }
 
     public Integer getFirearmId() {
@@ -156,11 +156,11 @@ public class Firearm {
         this.caliberId = caliberId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getFirearmUrl() {
+        return firearmUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setFirearmUrl(String firearmUrl) {
+        this.firearmUrl = firearmUrl;
     }
 }

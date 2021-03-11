@@ -1,6 +1,7 @@
 <div class="infoCard">
     <div class="information">
-        <img [class]="containerPicker" src="../../../assets/{{manufacturerName}}/{{gunName}}.jpg">
+        <img [class]="containerPicker" [src]="hydratedFirearm.url">
+        <input *ngIf="!editing" type="text" [(ngModel)]="hydratedFirearm.url" [value]="hydratedFirearm.url">
         <div class="infoContainer">
 
             <select *ngIf="!editing" [(ngModel)]="hydratedFirearm.manufacturer" style="background-color: rgba(255, 255, 255, 0.342);">
@@ -44,10 +45,10 @@
         </div>  
     </div>
     <div class="description">
-        <textarea *ngIf="!editing" [readonly]="editing" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="hydratedFirearm.description" rows="10" cols="100">
+        <textarea *ngIf="!editing" [readonly]="editing" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="hydratedFirearm.description" rows="25" cols="100">
             {hydratedFirearm.description}
         </textarea>
-        <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description" rows="10" cols="100">
+        <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description" style="background-color: inherit;" rows="25" cols="100">
             {hydratedFirearm.description}
         </textarea>
     </div>
