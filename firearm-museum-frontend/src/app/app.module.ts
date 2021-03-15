@@ -26,6 +26,7 @@ import { AddManufacturerComponent } from './adders/add-manufacturer/add-manufact
 import { AddActionTypeComponent } from './adders/add-action-type/add-action-type.component';
 import { AddFirearmTypeComponent } from './adders/add-firearm-type/add-firearm-type.component';
 import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-hydrated-firearm.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -50,13 +51,14 @@ import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-h
     AddManufacturerComponent,
     AddActionTypeComponent,
     AddFirearmTypeComponent,
-    AddHydratedFirearmComponent
+    AddHydratedFirearmComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
