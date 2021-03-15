@@ -3,6 +3,7 @@
         <img class="picContainer" [src]="imgSrc" style="height: 75%;">        
         <input #firearmUrl id="imagesource"[(ngModel)]="imgSrc" type="text" placeholder="image url">
         <div class="infoContainer">
+            
             <select #newManufacturer (change)="logList()" [(ngModel)]="mToAdd" style="background-color: rgba(255, 255, 255, 0.342);">
                 <option [value]="mToAdd"><option>
                 <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.manufacturer}}</option>
