@@ -5,14 +5,16 @@
         
         <div class="infoContainer">
             <span *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; border-width: 0px; background-color: inherit; resize: none; text-align: center;">{{manufacturer.manufacturer}}</span>
-            <textarea *ngIf="!editing"[readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center;" rows="1" cols="53">{{manufacturer.manufacturer}}</textarea>
+            <input #manufacturerName  *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" value="manufacturer.manufacturer">
         </div>  
     </div>
     <div class="description">
         <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: inherit; border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
         <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
     </div>
-    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editManufacturer()">submit</button>
-    <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeManufacturer()">Delete</button>
     <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()" >edit</button>
+    <div *ngIf="!editing">
+        <button ng-disabled="true" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editManufacturer()">submit</button>
+        <button style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeManufacturer()">Delete</button>
+    </div>
 </div>
