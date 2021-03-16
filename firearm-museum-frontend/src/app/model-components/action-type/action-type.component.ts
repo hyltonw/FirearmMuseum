@@ -29,9 +29,11 @@ export class ActionTypeComponent implements OnInit {
   }
 
   removeActionType(){
+    if(confirm("Are you sure you would like to delete the entry?")){
     this.editing=!this.editing;
     this.service.removeActionType(this.ActionType.actionTypeId).subscribe(x => console.log(x))
     window.location.reload()
+    }
   }
 
 }

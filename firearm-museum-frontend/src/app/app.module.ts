@@ -27,6 +27,7 @@ import { AddActionTypeComponent } from './adders/add-action-type/add-action-type
 import { AddFirearmTypeComponent } from './adders/add-firearm-type/add-firearm-type.component';
 import { AddHydratedFirearmComponent } from './adders/add-hydrated-firearm/add-hydrated-firearm.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button'
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

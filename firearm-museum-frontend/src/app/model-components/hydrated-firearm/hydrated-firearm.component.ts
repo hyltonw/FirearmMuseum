@@ -16,6 +16,7 @@ export class HydratedFirearmComponent implements OnInit {
 
   @Input() hydratedFirearm : HydratedFirearm;
   dehydratedFirearm : Firearm;
+  preEditFirearm : HydratedFirearm;
 
   gunName : string;
   manufacturerName : string;
@@ -64,9 +65,25 @@ export class HydratedFirearmComponent implements OnInit {
 
   toggleEdit(){
     this.editing=!this.editing
+    this.preEditFirearm = {...this.hydratedFirearm};
+    this.preEditFirearm.caliber = {...this.hydratedFirearm.caliber};
+    this.preEditFirearm.actionType = { ...this.hydratedFirearm.actionType };
+    this.preEditFirearm.firearmType = { ...this.hydratedFirearm.firearmType};
+    this.preEditFirearm.manufacturer = { ...this.hydratedFirearm.manufacturer};
   }
 
   editHydratedFirearm(){
+
+    if(
+      (this.hydratedFirearm.productionDate<1655 || this.hydratedFirearm.productionDate > 2025) ||
+      (this.hydratedFirearm.name=="") ||
+      (this.hydratedFirearm.description=="") ||
+      (this.hydratedFirearm.url=="")
+      ){
+        alert("invalid data entered")
+        return;
+      }
+
     this.editing=!this.editing
     
     this.dehydratedFirearm = 
@@ -91,14 +108,20 @@ export class HydratedFirearmComponent implements OnInit {
     }
   }
 
+  onCancel(){
+    this.editing = !this.editing;
+    this.hydratedFirearm = this.preEditFirearm;
+  }
+
   deleteWindow(){
-    this.showDeleteWindow = true;
     this.removeHydratedFirearm();
   }
 
   removeHydratedFirearm(){
+    if(confirm("Are you sure you would like to delete the entry?")){
     this.service.removeFirearm(this.hydratedFirearm.firearmId).subscribe(x => console.log(x));
     window.location.reload()
+    }
   }
 
 

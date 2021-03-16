@@ -29,9 +29,11 @@ export class CaliberComponent implements OnInit {
   }
 
   removeCaliber(){
+    if(confirm("Are you sure you would like to delete the entry?")){
     this.editing = !this.editing;
     this.service.removeCaliber(this.caliber.caliberId).subscribe(x => console.log(x));
     window.location.reload()
+    }
   }
 
 }
