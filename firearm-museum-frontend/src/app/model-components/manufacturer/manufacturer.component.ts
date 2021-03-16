@@ -10,6 +10,7 @@ import { MuseumService } from 'src/app/museum.service';
 export class ManufacturerComponent implements OnInit {
 
   @Input() manufacturer : Manufacturer;
+  preEditManufacturer : Manufacturer;
 
   editing : boolean = true;
   imgSrc : string;
@@ -17,16 +18,31 @@ export class ManufacturerComponent implements OnInit {
   constructor(private service: MuseumService) { }
 
   ngOnInit(): void {
-    console.log(this.manufacturer)
   }
 
   toggleEdit(){
     this.editing = !this.editing;
+    this.preEditManufacturer = {...this.manufacturer}
+    console.log("pre edit")
+    console.log(this.preEditManufacturer.manufacturerDescription)
+    console.log("manufacturer")
+    console.log(this.manufacturer.manufacturerDescription)
   }
 
   editManufacturer(){
     this.editing = !this.editing;
     this.service.editManufacturer(this.manufacturer,this.manufacturer.manufacturerId).subscribe(x => console.log(x));
+  }
+
+  onCancel(){
+    this.editing = !this.editing;
+    console.log("pre edit")
+    console.log(this.preEditManufacturer.manufacturerDescription)
+    console.log("manufacturer")
+    console.log(this.manufacturer.manufacturerDescription)
+    this.manufacturer = this.preEditManufacturer;
+    console.log("manufacturer after cancel")
+    console.log(this.manufacturer.manufacturerDescription)
   }
 
   removeManufacturer(){

@@ -113,10 +113,6 @@ export class HydratedFirearmComponent implements OnInit {
     this.hydratedFirearm = this.preEditFirearm;
   }
 
-  deleteWindow(){
-    this.removeHydratedFirearm();
-  }
-
   removeHydratedFirearm(){
     if(confirm("Are you sure you would like to delete the entry?")){
     this.service.removeFirearm(this.hydratedFirearm.firearmId).subscribe(x => console.log(x));

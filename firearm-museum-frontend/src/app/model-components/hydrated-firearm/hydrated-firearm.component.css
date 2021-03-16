@@ -1,15 +1,31 @@
-.submitButton{
+.editButton{
+    position: absolute; 
+    bottom: 10px; 
+    left: 30px;
+    height: 30px;
+    width: 30px;
+}
 
+.submitButton{
+    position: absolute; 
+    bottom: 10px; 
+    left: 30px; 
+    height: 30px;
+    width: 30px;
 }
 
 .deleteButton{
-
-}
-
-.editButton{
-
+    position: absolute; 
+    bottom: 10px; 
+    right: 30px; 
+    height: 30px;
+    width: 30px;
 }
 
 .cancelButton{
-    
+    position: absolute; 
+    bottom: 10px; 
+    left: 70px; 
+    height: 30px;
+    width: 30px;
 }

@@ -10,11 +10,12 @@
     </div>
     <div class="description">
         <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: inherit; border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
-        <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription" style="display: block; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
+        <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturerDescription"  style="background-color: rgba(255, 255, 255, 0.342);" rows="25" cols="100"></textarea>
+        <!-- <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description"           style="background-color: rgba(255, 255, 255, 0.342);" rows="25" cols="100"></textarea> -->
     </div>
-    <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()" >edit</button>
-    <div *ngIf="!editing">
-        <button ng-disabled="true" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editManufacturer()">submit</button>
-        <button style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeManufacturer()">Delete</button>
-    </div>
+
+    <img *ngIf="!editing" (click)="editManufacturer()" class="submitButton" src="../../../assets/confirm.png">
+    <img *ngIf="!editing" (click)="removeManufacturer()" class="deleteButton" src="../../../assets/delete.png">
+    <img *ngIf="editing" (click)="toggleEdit()" class="editButton" src="../../../assets/edit.png">
+    <img *ngIf="!editing" (click)="onCancel()" class="cancelButton" src="../../../assets/cancel.png">
 </div>
