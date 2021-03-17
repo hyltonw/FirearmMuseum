@@ -4,7 +4,7 @@
         <input *ngIf="!editing" type="text" [(ngModel)]="caliber.caliberUrl" [value]="caliber.caliberurl">
         
         <div class="infoContainer">
-            <textArea *ngIf="editing" [readonly]="editing" [(ngModel)]="caliber.caliberSize" style="display: inline; background-color: inherit; border-width: 0px; resize: none; text-align: right;" rows="1" cols="5">{{caliber.caliberSize}}</textArea>
+            <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="caliber.caliberSize" style="display: inline; background-color: inherit; border-width: 0px; resize: none; text-align: right;" rows="1" cols="5">{{caliber.caliberSize}}</textArea>
             <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="caliber.caliberUnit" style="display: inline; background-color: inherit; border-width: 0px; resize: none; text-align: left;" rows="1" cols="20">{{caliber.caliberUnit}}</textarea>
             
             <textarea *ngIf="!editing" [(ngModel)]="caliber.caliberSize" style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: right;" rows="1" cols="5">{{caliber.caliberSize}}</textarea>
@@ -15,7 +15,12 @@
         <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="caliber.caliberDescription" style="display: block; background-color: inherit; border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
         <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="caliber.caliberDescription" style="display: block; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none;" rows="25" cols="100"></textarea>
     </div>
-    <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editCaliber()">submit</button>
+    <!-- <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editCaliber()">submit</button>
     <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="removeCaliber()">Delete</button>
-    <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()">edit</button>
+    <button *ngIf="editing" style="position: absolute; bottom: 0; left: 0; background-color: yellow;" (click)="toggleEdit()">edit</button> -->
+    <img *ngIf="!editing" (click)="editCaliber()" class="submitButton" src="../../../assets/confirm.png">
+    <img *ngIf="!editing" (click)="removeCaliber()" class="deleteButton" src="../../../assets/delete.png">
+    <img *ngIf="editing" (click)="toggleEdit()" class="editButton" src="../../../assets/edit.png">
+    <img *ngIf="!editing" (click)="onCancel()" class="cancelButton" src="../../../assets/cancel.png">
+
 </div>

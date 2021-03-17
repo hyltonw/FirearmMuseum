@@ -4,8 +4,8 @@
         <input *ngIf="!editing" type="text" [(ngModel)]="manufacturer.manufacturerUrl" [value]="manufacturer.manufacturerUrl">
         
         <div class="infoContainer">
-            <span *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: block; border-width: 0px; background-color: inherit; resize: none; text-align: center;">{{manufacturer.manufacturer}}</span>
-            <input #manufacturerName  *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" value="manufacturer.manufacturer">
+            <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: inline; background-color: inherit; border-width: 0px; resize: none; text-align: center;" rows="1" cols="53">{{manufacturer.manufacturer}}</textarea>
+            <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="manufacturer.manufacturer" style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" value="manufacturer.manufacturer"></textarea>
         </div>  
     </div>
     <div class="description">

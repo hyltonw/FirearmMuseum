@@ -11,6 +11,7 @@ export class CaliberComponent implements OnInit {
 
   @Input() caliber : Caliber;
   @Input() name : string;
+  preEditCaliber : Caliber;
   editing : boolean = true;
 
   constructor(private service : MuseumService) { }
@@ -21,6 +22,12 @@ export class CaliberComponent implements OnInit {
 
   toggleEdit(){
     this.editing = !this.editing;
+    this.preEditCaliber = {...this.caliber}
+  }
+
+  onCancel(){
+    this.editing = !this.editing;
+    this.caliber = {...this.preEditCaliber};
   }
 
   editCaliber(){

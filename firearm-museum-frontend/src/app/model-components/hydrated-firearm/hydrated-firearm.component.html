@@ -45,8 +45,6 @@
         </div>  
     </div>
     <div class="description">
-        <textarea *ngIf="!editing" [readonly]="editing" style="background-color: rgba(255, 255, 255, 0.342);"[(ngModel)]="hydratedFirearm.description" rows="25" cols="100">
-        </textarea>
         <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description" style="background-color: inherit;" rows="25" cols="100">
         </textarea>
     </div>

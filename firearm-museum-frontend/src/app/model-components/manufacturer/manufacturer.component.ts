@@ -40,7 +40,7 @@ export class ManufacturerComponent implements OnInit {
     console.log(this.preEditManufacturer.manufacturerDescription)
     console.log("manufacturer")
     console.log(this.manufacturer.manufacturerDescription)
-    this.manufacturer = this.preEditManufacturer;
+    this.manufacturer = {...this.preEditManufacturer};
     console.log("manufacturer after cancel")
     console.log(this.manufacturer.manufacturerDescription)
   }

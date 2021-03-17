@@ -11,6 +11,7 @@ export class ActionTypeComponent implements OnInit {
 
   @Input() ActionType : ActionType;
   @Input() name : string;
+  preEditActionType : ActionType;
   editing : boolean = true;
 
   constructor(private service: MuseumService) { }
@@ -21,11 +22,20 @@ export class ActionTypeComponent implements OnInit {
 
   toggleEdit(){
     this.editing=!this.editing;
+    this.preEditActionType = {...this.ActionType}
   }
 
   editActionType(){
     this.editing=!this.editing;
     return this.service.editActionType(this.ActionType,this.ActionType.actionTypeId).subscribe(x => console.log(x))
+  }
+
+  onCancel(){
+    this.editing = !this.editing;
+    this.ActionType.actionType = this.preEditActionType.actionType;
+    this.ActionType.actionTypeDescription = this.preEditActionType.actionTypeDescription;
+    this.ActionType.actionTypeId = this.preEditActionType.actionTypeId;
+    this.ActionType.actionTypeUrl = this.ActionType.actionTypeUrl;
   }
 
   removeActionType(){
