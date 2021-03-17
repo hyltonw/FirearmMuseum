@@ -47,18 +47,12 @@
     <div class="description">
         <textarea *ngIf="editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description" style="background-color: inherit;" rows="25" cols="100">
         </textarea>
+        <textarea *ngIf="!editing" [readonly]="editing" [(ngModel)]="hydratedFirearm.description" style="background-color: rgba(255, 255, 255, 0.342);;" rows="25" cols="100">
+        </textarea>
     </div>
     <img *ngIf="!editing" (click)="editHydratedFirearm()" class="submitButton" src="../../../assets/confirm.png">
     <img *ngIf="!editing" (click)="removeHydratedFirearm()" class="deleteButton" src="../../../assets/delete.png">
     <img *ngIf="editing" (click)="toggleEdit()" class="editButton" src="../../../assets/edit.png">
     <img *ngIf="!editing" (click)="onCancel()" class="cancelButton" src="../../../assets/cancel.png">
 
-    
-
-</div>
-<div>
-    <div *ngIf="showDeleteWindow"class="deleteWindowView">
-        <button *ngIf="!editing" style="position: absolute; bottom: 0; left: 0; background-color: green;" (click)="editHydratedFirearm()">submit</button>
-        <button *ngIf="!editing" style="position: absolute; bottom: 0; right: 0; background-color: red;" (click)="deleteWindow()">Delete</button>
-    </div>
 </div>

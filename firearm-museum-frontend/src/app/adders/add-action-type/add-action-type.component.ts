@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActionType } from 'src/app/models/action-type';
 import { MuseumService } from 'src/app/museum.service';
 
@@ -11,7 +12,7 @@ export class AddActionTypeComponent implements OnInit {
 
   imgSrc : string = "https://i.imgur.com/FK3SITD.png";
 
-  constructor(private service : MuseumService) { }
+  constructor(private service : MuseumService, private router : Router) { }
 
   ngOnInit(): void {
   }

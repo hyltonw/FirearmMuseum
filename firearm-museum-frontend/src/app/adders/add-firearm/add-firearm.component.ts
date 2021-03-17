@@ -43,6 +43,7 @@ export class AddFirearmComponent implements OnInit {
 
     this.service.getAllManufacturers().subscribe( list => {
       this.manufacturers = list;
+      console.log(this.manufacturers)
     })
 
     this.service.getAllCalibers().subscribe( list => {
@@ -57,12 +58,49 @@ export class AddFirearmComponent implements OnInit {
       this.firearmTypes = list;
     })
 
+  
+
   }
 
   logList(){
+    console.log(this.manufacturers)
   }
 
   addFirearm() {
+
+    
+    if(this.nToAdd===""){
+      alert("Enter a name");
+      return;
+    }
+    if(this.cToAdd===null){
+      alert("Select a caliber");
+      return;
+    }
+    if(this.mToAdd===null){
+      alert("Select a manufacturer");
+      return;
+    }
+    if(this.atToAdd===null){
+      alert("Select an action type");
+      return;
+    }
+    if(this.ftToAdd===null){
+      alert("Select a firearm type");
+      return;
+    }
+    if(this.pdToAdd<1655 || this.pdToAdd > 2021){
+      alert("Invalid production year added");
+      return;
+    }
+    if(this.dToAdd===""){
+      alert("Enter a desription");
+      return;
+    }
+    if(this.imgSrc==="" || this.imgSrc==="https://i.imgur.com/FK3SITD.png"){
+      alert("Enter an image url");
+      return;
+    }
 
     this.dehydratedFirearm = {
     name: this.nToAdd,
@@ -76,7 +114,7 @@ export class AddFirearmComponent implements OnInit {
     donatedBy: this.dbToAdd,
     firearmUrl: this.imgSrc
     }
-    
+    this.router.navigateByUrl("/hydratedfirearm")
     return this.service.addFirearm(this.dehydratedFirearm).subscribe(x => console.log(x));  
 
   }

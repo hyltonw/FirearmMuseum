@@ -1,28 +1,28 @@
 <div class="infoCard">
     <div class="information">
-        <img class="picContainer" [src]="imgSrc" style="height: 75%;">        
+        <img class="picContainer" [src]="imgSrc">        
         <input #firearmUrl id="imagesource"[(ngModel)]="imgSrc" type="text" placeholder="image url">
         <div class="infoContainer">
             
             <select #newManufacturer (change)="logList()" [(ngModel)]="mToAdd" style="background-color: rgba(255, 255, 255, 0.342);">
-                <option [value]="mToAdd"><option>
+                <option [value]="mToAdd">Manufacturer</option>
                 <option *ngFor="let m of manufacturers" [ngValue]="m">{{m.manufacturer}}</option>
             </select>
 
             <input [readonly]="false" [(ngModel)]="nToAdd" #newName style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: left;" placeholder="name">
 
             <select #newCaliber [(ngModel)]="cToAdd" style="background-color: rgba(255, 255, 255, 0.342)">
-                <option [value]="cToAdd"></option>
+                <option [value]="cToAdd">Caliber</option>
                 <option *ngFor="let c of calibers" [ngValue]="c">{{c.caliberSize}} {{c.caliberUnit}}</option>
             </select>
             
             <select  #newActionType [(ngModel)]="atToAdd" style="background-color: rgba(255, 255, 255, 0.342)">
-                <option [value]="atToAdd"></option>
+                <option [value]="atToAdd">Action Type</option>
                 <option *ngFor="let at of actionTypes" [ngValue]="at">{{at.actionType}}</option>
             </select>
 
             <select  #newFirearmType [(ngModel)]="ftToAdd" style="background-color: rgba(255, 255, 255, 0.342);">
-                <option [value]="ftToAdd"></option>
+                <option [value]="ftToAdd">Firearm Type</option>
                 <option *ngFor="let ft of firearmTypes" [ngValue]="ft">{{ft.firearmType}}</option>
             </select>
             
@@ -31,13 +31,9 @@
             <!-- <input [readonly]="false" #newDonatedBy style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="donated"> -->
             <!-- <input [readonly]="false" #newSerialNumber style="display: inline; background-color: rgba(255, 255, 255, 0.342); border-width: 0px; resize: none; text-align: center; width: 50px;" placeholder="serial number"> -->
 
-            
-            <button (click)="addFirearm()" style="position: absolute; left: 0; bottom: 0;"  routerLink="/hydratedfirearm">submit</button>
-            
-            <!-- <button (click)="logList()" style="position: absolute; left: 0; bottom: 0;">Submit</button> -->
 
-
-            <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
+            <img (click)="addFirearm()" class="submitButton" src="../../../assets/confirm.png">
+            <img class="cancelButton" routerLink="/hydratedfirearm" src="../../../assets/cancel.png">
 
         </div>  
     </div>
