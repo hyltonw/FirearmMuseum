@@ -6,8 +6,8 @@
         <div class="infoContainer">
             <input #sizeId type="text" placeholder="size">
             <input #unitId type="text" placeholder="units / name">
-            <button (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value,caliberUrl.value)" style="position: absolute; left: 0; bottom: 0;"  routerLink="/caliber">Submit</button>
-            <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/caliber">Cancel</button>
+            <img (click)="addCaliber(sizeId.value,unitId.value,descriptionId.value,caliberUrl.value)" class="submitButton" src="../../../assets/confirm.png">
+            <img class="cancelButton" routerLink="/caliber" src="../../../assets/cancel.png">
         </div>  
     </div>
     <div class="description">

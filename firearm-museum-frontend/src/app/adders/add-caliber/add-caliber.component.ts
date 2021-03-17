@@ -19,6 +19,23 @@ export class AddCaliberComponent implements OnInit {
 
   addCaliber(caliberSize: string, caliberUnit: string, caliberDescription: string, imgSrc){
 
+    if(caliberSize===""){
+      alert("please enter a caliber size")
+      return;
+    }
+    if(caliberUnit===""){
+      alert("please enter a caliber name/unit")
+      return;
+    }
+    if(caliberDescription===""){
+      alert("please enter a description")
+      return;
+    }
+    if(imgSrc==="" || imgSrc==="https://i.imgur.com/FK3SITD.png"){
+      alert("please enter an image url")
+      return;
+    }
+
     let toAdd : Caliber = {caliberSize,caliberUnit,caliberDescription, caliberUrl : imgSrc};
     return this.service.addCaliber(toAdd).subscribe(x => console.log(x));
   }

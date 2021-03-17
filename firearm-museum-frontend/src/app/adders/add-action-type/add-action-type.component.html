@@ -5,8 +5,8 @@
 
         <div class="infoContainer">
             <input #nameId type="text" placeholder="action name">
-            <button (click)="addActionType(nameId.value,descriptionId.value,actionTypeUrl.value)" style="position: absolute; left: 0; bottom: 0;" routerLink="/actiontype">Submit</button>
-            <button style="position: absolute; right: 0; bottom: 0;"  routerLink="/actiontype">Cancel</button>
+            <img (click)="addActionType(nameId.value,descriptionId.value,actionTypeUrl.value)" class="submitButton" src="../../../assets/confirm.png">
+            <img class="cancelButton" routerLink="/actiontype" src="../../../assets/cancel.png">
         </div>  
     </div>
     <div class="description">

@@ -73,19 +73,19 @@ export class AddFirearmComponent implements OnInit {
       alert("Enter a name");
       return;
     }
-    if(this.cToAdd===null){
+    if(this.cToAdd===undefined){
       alert("Select a caliber");
       return;
     }
-    if(this.mToAdd===null){
+    if(this.mToAdd===undefined){
       alert("Select a manufacturer");
       return;
     }
-    if(this.atToAdd===null){
+    if(this.atToAdd===undefined){
       alert("Select an action type");
       return;
     }
-    if(this.ftToAdd===null){
+    if(this.ftToAdd===undefined){
       alert("Select a firearm type");
       return;
     }
